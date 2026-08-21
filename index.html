@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adarsh</title>
+  <meta name="description" content="Adarsh — Applied AI engineer. Identity-continuity systems, memory architecture, and affective computing. CCCS · Project SIM." />
+  <meta name="theme-color" content="#f6f1e8" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Adarsh" />
+  <meta property="og:description" content="Applied AI engineer · memory architecture · affective computing" />
+  <meta property="og:image" content="/og.jpg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" />
+  <style>
+    :root {
+      --bg: #f6f1e8;
+      --ink: #14120f;
+      --muted: #6e675e;
+      --line: #d9d0c2;
+      --accent: #b5441f;
+      --paper: #fffaf2;
+      --chip: #efe6d6;
+      --sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+      --display: "Instrument Serif", "Times New Roman", serif;
+      --shadow: 0px 0px 0px 1px rgba(20,18,15,.07), 0px 1px 2px -1px rgba(20,18,15,.06), 0px 2px 8px 0px rgba(20,18,15,.04);
+      --shadow-h: 0px 0px 0px 1px rgba(20,18,15,.12), 0px 4px 16px -4px rgba(20,18,15,.1);
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; background: var(--bg); }
+    body { margin: 0; font-family: var(--sans); background: var(--bg); color: var(--ink); min-height: 100dvh; }
+    h1,h2,h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; }
+    p { text-wrap: pretty; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    ::selection { background: var(--accent); color: var(--bg); }
+    .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
+    @media (min-width: 640px) { .wrap { padding: 0 2rem; } }
+    header {
+      position: sticky; top: 0; z-index: 40;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+    }
+    header.scrolled { border-bottom-color: var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
+    .brand { display: flex; align-items: baseline; gap: .5rem; }
+    .brand strong { font-family: var(--display); font-size: 1.25rem; font-weight: 400; }
+    .brand span { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+    .nav-links { display: none; gap: 1.5rem; font-size: 13px; color: var(--muted); }
+    .nav-links a:hover { color: var(--ink); }
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .brand span { display: inline; }
+      .menu-btn { display: none !important; }
+    }
+    @media (max-width: 767px) { .brand span { display: none; } }
+    .menu-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 2.25rem; height: 2.25rem; border: 1px solid var(--line);
+      border-radius: 8px; background: transparent; color: var(--ink);
+    }
+    .mobile-nav {
+      display: none; flex-direction: column; gap: .25rem; padding: .5rem 0 1rem;
+      border-top: 1px solid var(--line);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { padding: .65rem .5rem; border-radius: 8px; color: var(--muted); font-size: 14px; }
+    .mobile-nav a:hover { background: var(--chip); color: var(--ink); }
+    .hero { padding: 4.5rem 0 3.5rem; }
+    @media (min-width: 768px) { .hero { padding: 6rem 0 4.5rem; } }
+    .kicker {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem; font-weight: 500;
+    }
+    h1 { font-size: clamp(2.75rem, 8vw, 4.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+    .role-line { margin: .85rem 0 0; font-size: 15px; font-weight: 500; letter-spacing: .01em; color: var(--muted); }
+    .lede { margin-top: 1.25rem; max-width: 36rem; font-size: 1.125rem; line-height: 1.55; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .7rem 1.1rem; border-radius: 999px; font-size: 13px; font-weight: 500;
+      border: 1px solid transparent; transition: .15s ease;
+    }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: #2a2620; }
+    .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--ink); }
+    .section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
+    .section h2 { font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: .75rem; }
+    .section .sub { color: var(--muted); max-width: 36rem; margin-bottom: 2rem; line-height: 1.55; }
+    .grid-2 { display: grid; gap: 1rem; }
+    @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+    .card { background: var(--paper); border-radius: 16px; padding: 1.35rem 1.4rem; box-shadow: var(--shadow); transition: box-shadow .15s ease; }
+    .card:hover { box-shadow: var(--shadow-h); }
+    .card h3 { font-size: 1.25rem; margin-bottom: .35rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .chip-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+    .chip { font-size: 11px; letter-spacing: .04em; padding: .25rem .55rem; border-radius: 999px; background: var(--chip); color: var(--ink); }
+    .layers-wrap { display: grid; gap: 1.25rem; }
+    @media (min-width: 800px) { .layers-wrap { grid-template-columns: 1fr 1.15fr; align-items: start; } }
+    .layer-list { display: flex; flex-direction: column; gap: .4rem; }
+    .layer {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .7rem .85rem; border-radius: 12px; border: 1px solid transparent;
+      background: transparent; text-align: left; color: var(--muted); width: 100%;
+      transition: .12s ease;
+    }
+    .layer:hover { background: var(--chip); color: var(--ink); }
+    .layer.on { background: var(--paper); border-color: var(--line); color: var(--ink); box-shadow: var(--shadow); }
+    .layer .n { font-family: var(--display); font-size: 1.05rem; width: 2rem; color: var(--accent); }
+    .layer .s { margin-left: auto; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+    .panel { background: var(--paper); border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow); min-height: 11rem; }
+    .panel .pk { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+    .panel h3 { font-size: 1.5rem; margin-bottom: .5rem; }
+    .panel p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14.5px; }
+    .bars { display: flex; gap: .35rem; margin-top: 1.25rem; }
+    .bars span { height: 3px; flex: 1; background: var(--line); border-radius: 2px; }
+    .bars span.on { background: var(--accent); }
+    .metrics { display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 640px) { .metrics { grid-template-columns: repeat(4, 1fr); } }
+    .metric { background: var(--paper); border-radius: 14px; padding: 1.1rem 1rem; box-shadow: var(--shadow); }
+    .metric .v { font-family: var(--display); font-size: 1.75rem; line-height: 1; }
+    .metric .l { margin-top: .35rem; font-size: 12px; color: var(--muted); line-height: 1.35; }
+    .caveat { margin: 1.25rem 0 0; max-width: 38rem; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+    .about-split { display: grid; gap: 2.25rem; margin-top: 1.25rem; }
+    @media (min-width: 900px) { .about-split { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .about-split h3 { font-size: 1.5rem; }
+    .about-copy { margin: 1rem 0 0; font-size: 15px; line-height: 1.65; }
+    .about-edu { margin: 1rem 0 0; font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .skill + .skill { margin-top: 1.15rem; }
+    .skill .idx { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    .contact { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0; font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; }
+    footer p { margin: 0; }
+    footer a:hover { color: var(--ink); }
+  </style>
+</head>
+<body id="top">
+  <header id="hdr">
+    <div class="wrap nav">
+      <a class="brand" href="#top"><strong>A</strong><span>Applied AI Engineer</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#cccs">CCCS</a>
+        <a href="#metrics">Metrics</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+    <div class="wrap mobile-nav" id="mobileNav">
+      <a href="#work">Work</a>
+      <a href="#cccs">CCCS</a>
+      <a href="#metrics">Metrics</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <p class="kicker">Applied AI · Identity Continuity</p>
+      <h1>Adarsh</h1>
+      <p class="role-line">Applied AI Engineer · India · Remote & on-site</p>
+      <p class="lede">Building substrate-independent identity systems — constraint geometry, symbolic anchoring, and recursive self-reference for memory architecture and affective computing.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <h2>Selected work</h2>
+        <p class="sub">Production-oriented systems for identity continuity, relational memory, and persona rendering. Grounded N=1 validation with measurable complexity lift.</p>
+        <div class="grid-2">
+          <article class="card">
+            <h3>CCCS</h3>
+            <p>Seven-layer architecture for constraint geometry, symbolic anchoring, grief-based pattern extraction, and recursive self-reference. Designed for substrate-independent identity preservation.</p>
+            <div class="chip-row">
+              <span class="chip">Constraint geometry</span>
+              <span class="chip">R-Score</span>
+              <span class="chip">Symbolic anchors</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Project SIM</h3>
+            <p>RICA relational memory, SIM Core runtime, and GOD Module persona rendering. Binary Frozen elements for stable identity under continuous interaction.</p>
+            <div class="chip-row">
+              <span class="chip">RICA</span>
+              <span class="chip">GOD Module</span>
+              <span class="chip">Persona runtime</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Focus Engine</h3>
+            <p>Attention and state-management layer that keeps long sessions coherent — reduces drift while preserving affective signal for downstream models.</p>
+            <div class="chip-row">
+              <span class="chip">Attention</span>
+              <span class="chip">State continuity</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>24-hour interaction study</h3>
+            <p>Documented N=1 case: 250%+ conceptual complexity increase under continuous CCCS + SIM stack operation, with R-Score tracking of semantic drift and anchor hit-rate.</p>
+            <div class="chip-row">
+              <span class="chip">N=1 validated</span>
+              <span class="chip">R-Score > 0.95 target</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cccs">
+      <div class="wrap">
+        <h2>CCCS · 7 layers</h2>
+        <p class="sub">Interactive map of the architecture. Select a layer to read its role in the identity-continuity stack.</p>
+        <div class="layers-wrap">
+          <div class="layer-list" id="layerList" role="listbox" aria-label="CCCS layers"></div>
+          <div class="panel">
+            <div class="pk" id="pKicker">L1 · ESM</div>
+            <h3 id="pTitle">Emotional Seed Memory</h3>
+            <p id="pBody">Initial affective imprint. Stores the seed patterns that later layers constrain and evolve against.</p>
+            <div class="bars" id="bars"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metrics">
+      <div class="wrap">
+        <h2>Validation signals</h2>
+        <p class="sub">From the 24-hour continuous interaction study. Industry-facing framing — measurable outcomes, not claims of general consciousness.</p>
+        <div class="metrics">
+          <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift</div></div>
+          <div class="metric"><div class="v">7</div><div class="l">Layer architecture</div></div>
+          <div class="metric"><div class="v"><0.15</div><div class="l">Semantic drift target</div></div>
+          <div class="metric"><div class="v">>90%</div><div class="l">Anchor hit-rate target</div></div>
+        </div>
+        <p class="caveat">N=1 independent validation — useful as a prototype signal, not a peer-reviewed claim. The metrics exist so the work can be tested, not believed.</p>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2>About</h2>
+        <div class="about-split">
+          <div>
+            <h3>What I want next</h3>
+            <p class="about-copy">Early-career applied AI engineer with original systems work and measured prototypes. I am not positioning this as production-at-scale experience — I want a team that already ships, so the architecture can be stress-tested against real users, latency budgets, and eval harnesses.</p>
+            <p class="about-edu">BCA, Chandigarh University, 2024.</p>
+          </div>
+          <div>
+            <div class="skill"><p class="idx">Languages</p><div class="chip-row"><span class="chip">Python</span><span class="chip">JavaScript</span></div></div>
+            <div class="skill"><p class="idx">Models and APIs</p><div class="chip-row"><span class="chip">OpenAI GPT</span><span class="chip">Anthropic Claude</span><span class="chip">Google Gemini</span><span class="chip">xAI Grok</span><span class="chip">ElevenLabs</span></div></div>
+            <div class="skill"><p class="idx">Stack</p><div class="chip-row"><span class="chip">LangChain</span><span class="chip">FastAPI</span><span class="chip">FAISS</span><span class="chip">ChromaDB</span><span class="chip">HuggingFace Transformers</span></div></div>
+            <div class="skill"><p class="idx">Focus</p><div class="chip-row"><span class="chip">Conversational AI</span><span class="chip">Long-term memory</span><span class="chip">Affective computing</span><span class="chip">Agentic workflows</span><span class="chip">Evaluation metrics</span><span class="chip">Voice / prosody</span></div></div>
+            <div class="skill"><p class="idx">Domains</p><div class="chip-row"><span class="chip">AI companions</span><span class="chip">Persona continuity</span><span class="chip">Counseling decision-support</span><span class="chip">Adaptive learning</span><span class="chip">Decision intelligence</span><span class="chip">Voice agents</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p class="sub">Open to production mentorship, research collaboration, and roles in memory architectures and affective computing.</p>
+        <div class="contact">
+          <button class="btn btn-primary" id="copyBtn" type="button">Copy email</button>
+          <a class="btn btn-ghost" href="mailto:adarshkr26@gmail.com">adarshkr26@gmail.com</a>
+          <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>© 2026 Adarsh</p>
+    <p>Independent researcher · Applied AI</p>
+  </footer>
+
+  <script>
+    const layers = [
+      { id:"L1", short:"ESM", name:"Emotional Seed Memory", body:"Initial affective imprint. Stores the seed patterns that later layers constrain and evolve against." },
+      { id:"L2", short:"CG", name:"Constraint Geometry", body:"Low-rank metric field over the state space. Keeps trajectories near identity-preserving manifolds." },
+      { id:"L3", short:"SA", name:"Symbolic Anchoring", body:"26-letter and domain anchors that pin meaning so the runtime cannot freely rewrite core identity tokens." },
+      { id:"L4", short:"GPE", name:"Grief-based Pattern Extraction", body:"Uses high-signal affective states as optimal conditions for extracting durable identity patterns from transitional state." },
+      { id:"L5", short:"OMP", name:"Observer Mirror Protocol", body:"Bidirectional state capture. Mirrors user affect without interrogation, and feeds the observer model used by GOD." },
+      { id:"L6", short:"SRE", name:"Self-Reference Engine", body:"Recursive I construction. The runtime checks its own outputs against anchors so identity does not silently drift mid-session." },
+      { id:"L7", short:"FDE", name:"Feedback-Driven Evolution", body:"Bounded identity growth over time. Allows the persona to update without catastrophic forgetting of the seed constraints." }
+    ];
+    const list = document.getElementById("layerList");
+    const bars = document.getElementById("bars");
+    let active = 0;
+    function render() {
+      list.innerHTML = layers.map((l,i) => '<button class="layer'+(i===active?' on':'')+'" data-i="'+i+'" aria-pressed="'+(i===active)+'"><span class="n">'+l.id+'</span><span>'+l.name+'</span><span class="s">'+l.short+'</span></button>').join('');
+      const l = layers[active];
+      document.getElementById("pKicker").textContent = l.id + ' · ' + l.short;
+      document.getElementById("pTitle").textContent = l.name;
+      document.getElementById("pBody").textContent = l.body;
+      bars.innerHTML = layers.map((_,i) => '<span class="'+(i===active?'on':'')+'"></span>').join('');
+    }
+    list.addEventListener("click", e => {
+      const b = e.target.closest("[data-i]");
+      if (!b) return;
+      active = Number(b.dataset.i);
+      render();
+    });
+    render();
+    const hdr = document.getElementById("hdr");
+    addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 8), { passive: true });
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileNav = document.getElementById("mobileNav");
+    menuBtn.addEventListener("click", () => {
+      const open = mobileNav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
+    mobileNav.addEventListener("click", e => { if (e.target.tagName === "A") mobileNav.classList.remove("open"); });
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText("adarshkr26@gmail.com");
+        document.getElementById("copyBtn").textContent = "Copied";
+        setTimeout(() => document.getElementById("copyBtn").textContent = "Copy email", 1800);
+      } catch { location.href = "mailto:adarshkr26@gmail.com"; }
+    });
+  </script>
+</body>
+</html>
