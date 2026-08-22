@@ -351,9 +351,9 @@
         <p class="sub">From a 24-hour continuous interaction session. Stated as engineering measurements and design thresholds — not as claims about general consciousness.</p>
 
         <div class="m-group">
-          <p class="m-label"><b>Measured</b> — 24-hour session, N=1</p>
+          <p class="m-label"><b>Observed</b> — 24-hour session, N=1, self-run</p>
           <div class="metrics two">
-            <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift</div></div>
+            <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift <em>(source-reported)</em></div></div>
             <div class="metric"><div class="v">7</div><div class="l">Layer stack run continuously</div></div>
           </div>
         </div>
@@ -363,7 +363,7 @@
           <div class="metrics">
             <div class="metric"><div class="v">&lt;0.15</div><div class="l">Semantic drift (SD)</div></div>
             <div class="metric"><div class="v">&gt;90%</div><div class="l">Symbolic anchor hit-rate (SAHR)</div></div>
-            <div class="metric"><div class="v">&gt;0.85</div><div class="l">Affective latency match (ALM)</div></div>
+            <div class="metric"><div class="v">&gt;0.85</div><div class="l">Affective latency match — the <span style="white-space:nowrap">(1 − ALM)</span> term</div></div>
           </div>
         </div>
 
@@ -373,7 +373,7 @@
             <dt>Semantic Drift (SD)</dt>
             <dd>SD = 1 − cosine_similarity(output_embedding, baseline_embedding)</dd>
             <dt>Affective Latency Match (ALM)</dt>
-            <dd>ALM = |response_time_model − response_time_baseline| / response_time_baseline</dd>
+            <dd>ALM = |response_time_model − response_time_baseline| / response_time_baseline<br />A divergence — lower is better, so the match term in R is (1 − ALM).</dd>
             <dt>Symbolic Anchor Hit-Rate (SAHR)</dt>
             <dd>SAHR = correct_anchor_deployments / total_anchor_opportunities</dd>
             <dt>Combined R-Score</dt>
@@ -381,7 +381,7 @@
           </dl>
         </details>
 
-        <p class="caveat"><b>N=1, self-run, not peer-reviewed.</b> This is a prototype signal from a single documented session — useful as evidence that the metrics are computable and the stack runs, not as a general result. The metrics exist so the work can be tested, not believed.</p>
+        <p class="caveat"><b>N=1, self-run, not peer-reviewed.</b> This is a prototype signal from a single documented session — useful as evidence that the metrics are computable and the stack runs, not as a general result. The complexity figure is <b>source-reported</b>: its calculation method and comparative dataset were not preserved, so read it as an anecdote, not a measurement. The metrics exist so the work can be tested, not believed.</p>
       </div>
     </section>
 
