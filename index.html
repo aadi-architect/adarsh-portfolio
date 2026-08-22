@@ -3,28 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adarsh</title>
-  <meta name="description" content="Adarsh — Applied AI engineer. Identity-continuity systems, memory architecture, and affective computing. CCCS · Project SIM." />
+  <title>Aadi Adarsh — Applied AI Engineer</title>
+  <meta name="description" content="Aadi Adarsh — applied AI engineer. Identity-continuity systems, long-term memory architecture, and affective computing. CCCS framework · Project SIM." />
+  <meta name="author" content="Aadi Adarsh" />
   <meta name="theme-color" content="#f6f1e8" />
-  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ══ CANONICAL ORIGIN — change these 2 lines if the domain changes ══ -->
+  <link rel="canonical" href="https://aadiadarsh.dev/" />
+  <meta property="og:url" content="https://aadiadarsh.dev/" />
+
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Adarsh" />
-  <meta property="og:description" content="Applied AI engineer · memory architecture · affective computing" />
-  <meta property="og:image" content="/og.jpg" />
+  <meta property="og:site_name" content="Aadi Adarsh" />
+  <meta property="og:title" content="Aadi Adarsh — Applied AI Engineer" />
+  <meta property="og:description" content="Identity-continuity systems, long-term memory architecture, and affective computing. CCCS framework · Project SIM." />
+  <meta property="og:image" content="https://aadiadarsh.dev/og.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Aadi Adarsh — Applied AI Engineer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aadi Adarsh — Applied AI Engineer" />
+  <meta name="twitter:description" content="Identity-continuity systems, long-term memory architecture, and affective computing." />
+  <meta name="twitter:image" content="https://aadiadarsh.dev/og.png" />
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aadi Adarsh",
+    "alternateName": "Adarsh Kumar",
+    "jobTitle": "Applied AI Engineer",
+    "email": "mailto:adarshkr26@gmail.com",
+    "url": "https://aadiadarsh.dev/",
+    "image": "https://aadiadarsh.dev/og.png",
+    "description": "Applied AI engineer working on identity-continuity systems, long-term memory architecture, and affective computing.",
+    "knowsAbout": ["Applied AI","Large language models","Long-term memory architecture","Affective computing","Agentic workflows","Evaluation metrics","Conversational AI"],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Chandigarh University" },
+    "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+    "sameAs": [
+      "https://github.com/aadi-architect",
+      "https://linkedin.com/in/adarshkumar-ai-research"
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --bg: #f6f1e8;
       --ink: #14120f;
       --muted: #6e675e;
       --line: #d9d0c2;
+      --line-strong: #a89c88;   /* 3:1 vs --bg — for interactive borders (WCAG 1.4.11) */
       --accent: #b5441f;
       --paper: #fffaf2;
       --chip: #efe6d6;
       --sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
       --display: "Instrument Serif", "Times New Roman", serif;
       --shadow: 0px 0px 0px 1px rgba(20,18,15,.07), 0px 1px 2px -1px rgba(20,18,15,.06), 0px 2px 8px 0px rgba(20,18,15,.04);
       --shadow-h: 0px 0px 0px 1px rgba(20,18,15,.12), 0px 4px 16px -4px rgba(20,18,15,.1);
@@ -37,8 +76,25 @@
     a { color: inherit; text-decoration: none; }
     button { font: inherit; cursor: pointer; }
     ::selection { background: var(--accent); color: var(--bg); }
+
+    /* Visible keyboard focus everywhere */
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+
+    .skip {
+      position: absolute; left: .75rem; top: -3rem; z-index: 60;
+      background: var(--ink); color: var(--bg); padding: .6rem 1rem;
+      border-radius: 8px; font-size: 13px; transition: top .15s ease;
+    }
+    .skip:focus { top: .75rem; }
+
     .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
     @media (min-width: 640px) { .wrap { padding: 0 2rem; } }
+
     header {
       position: sticky; top: 0; z-index: 40;
       background: color-mix(in srgb, var(--bg) 88%, transparent);
@@ -48,7 +104,7 @@
     header.scrolled { border-bottom-color: var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
     .brand { display: flex; align-items: baseline; gap: .5rem; }
-    .brand strong { font-family: var(--display); font-size: 1.25rem; font-weight: 400; }
+    .brand strong { font-family: var(--display); font-size: 1.25rem; font-weight: 400; white-space: nowrap; }
     .brand span { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
     .nav-links { display: none; gap: 1.5rem; font-size: 13px; color: var(--muted); }
     .nav-links a:hover { color: var(--ink); }
@@ -60,7 +116,7 @@
     @media (max-width: 767px) { .brand span { display: none; } }
     .menu-btn {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 2.25rem; height: 2.25rem; border: 1px solid var(--line);
+      width: 2.5rem; height: 2.5rem; border: 1px solid var(--line-strong);
       border-radius: 8px; background: transparent; color: var(--ink);
     }
     .mobile-nav {
@@ -68,30 +124,30 @@
       border-top: 1px solid var(--line);
     }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a { padding: .65rem .5rem; border-radius: 8px; color: var(--muted); font-size: 14px; }
+    .mobile-nav a { padding: .75rem .5rem; border-radius: 8px; color: var(--muted); font-size: 14px; }
     .mobile-nav a:hover { background: var(--chip); color: var(--ink); }
+
     .hero { padding: 4.5rem 0 3.5rem; }
     @media (min-width: 768px) { .hero { padding: 6rem 0 4.5rem; } }
-    .kicker {
-      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1rem; font-weight: 500;
-    }
-    h1 { font-size: clamp(2.75rem, 8vw, 4.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+    .kicker { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 500; }
+    h1 { font-size: clamp(2.5rem, 7.5vw, 4.25rem); line-height: 1.05; letter-spacing: -0.02em; }
     .role-line { margin: .85rem 0 0; font-size: 15px; font-weight: 500; letter-spacing: .01em; color: var(--muted); }
     .lede { margin-top: 1.25rem; max-width: 36rem; font-size: 1.125rem; line-height: 1.55; color: var(--muted); }
     .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
     .btn {
       display: inline-flex; align-items: center; gap: .5rem;
       padding: .7rem 1.1rem; border-radius: 999px; font-size: 13px; font-weight: 500;
-      border: 1px solid transparent; transition: .15s ease;
+      border: 1px solid transparent; transition: .15s ease; min-height: 2.75rem;
     }
     .btn-primary { background: var(--ink); color: var(--bg); }
     .btn-primary:hover { background: #2a2620; }
-    .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
-    .btn-ghost:hover { border-color: var(--ink); }
+    .btn-ghost { background: transparent; border-color: var(--line-strong); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--ink); background: var(--paper); }
+
     .section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
     .section h2 { font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: .75rem; }
-    .section .sub { color: var(--muted); max-width: 36rem; margin-bottom: 2rem; line-height: 1.55; }
+    .section .sub { color: var(--muted); max-width: 38rem; margin-bottom: 2rem; line-height: 1.55; }
+
     .grid-2 { display: grid; gap: 1rem; }
     @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
     .card { background: var(--paper); border-radius: 16px; padding: 1.35rem 1.4rem; box-shadow: var(--shadow); transition: box-shadow .15s ease; }
@@ -100,6 +156,18 @@
     .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
     .chip-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
     .chip { font-size: 11px; letter-spacing: .04em; padding: .25rem .55rem; border-radius: 999px; background: var(--chip); color: var(--ink); }
+
+    .repos { margin-top: 1.5rem; }
+    .repo-note { font-size: 13.5px; color: var(--muted); line-height: 1.55; margin: 0 0 .9rem; max-width: 38rem; }
+    .repo-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .repo-link {
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-size: 13px; padding: .5rem .85rem; border-radius: 999px;
+      border: 1px solid var(--line-strong); color: var(--ink); transition: .15s ease; min-height: 2.5rem;
+    }
+    .repo-link:hover { border-color: var(--ink); background: var(--paper); }
+    .repo-link .arrow { color: var(--accent); }
+
     .layers-wrap { display: grid; gap: 1.25rem; }
     @media (min-width: 800px) { .layers-wrap { grid-template-columns: 1fr 1.15fr; align-items: start; } }
     .layer-list { display: flex; flex-direction: column; gap: .4rem; }
@@ -107,12 +175,12 @@
       display: flex; align-items: center; gap: .75rem;
       padding: .7rem .85rem; border-radius: 12px; border: 1px solid transparent;
       background: transparent; text-align: left; color: var(--muted); width: 100%;
-      transition: .12s ease;
+      transition: .12s ease; min-height: 2.75rem;
     }
     .layer:hover { background: var(--chip); color: var(--ink); }
-    .layer.on { background: var(--paper); border-color: var(--line); color: var(--ink); box-shadow: var(--shadow); }
+    .layer[aria-selected="true"] { background: var(--paper); border-color: var(--line-strong); color: var(--ink); box-shadow: var(--shadow); }
     .layer .n { font-family: var(--display); font-size: 1.05rem; width: 2rem; color: var(--accent); }
-    .layer .s { margin-left: auto; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+    .layer .s { margin-left: auto; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
     .panel { background: var(--paper); border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow); min-height: 11rem; }
     .panel .pk { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
     .panel h3 { font-size: 1.5rem; margin-bottom: .5rem; }
@@ -120,66 +188,103 @@
     .bars { display: flex; gap: .35rem; margin-top: 1.25rem; }
     .bars span { height: 3px; flex: 1; background: var(--line); border-radius: 2px; }
     .bars span.on { background: var(--accent); }
+
+    .m-group + .m-group { margin-top: 1.75rem; }
+    .m-label {
+      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); font-weight: 500; margin: 0 0 .75rem;
+    }
+    .m-label b { color: var(--accent); font-weight: 500; }
     .metrics { display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); }
-    @media (min-width: 640px) { .metrics { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 720px) { .metrics { grid-template-columns: repeat(3, 1fr); } }
+    .metrics.two { grid-template-columns: repeat(2, 1fr); }
     .metric { background: var(--paper); border-radius: 14px; padding: 1.1rem 1rem; box-shadow: var(--shadow); }
     .metric .v { font-family: var(--display); font-size: 1.75rem; line-height: 1; }
     .metric .l { margin-top: .35rem; font-size: 12px; color: var(--muted); line-height: 1.35; }
-    .caveat { margin: 1.25rem 0 0; max-width: 38rem; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+    .caveat { margin: 1.5rem 0 0; max-width: 38rem; font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+    .caveat b { color: var(--ink); font-weight: 500; }
+
+    details.method { margin-top: 1.25rem; max-width: 40rem; }
+    details.method summary {
+      cursor: pointer; font-size: 13px; color: var(--accent); font-weight: 500;
+      padding: .5rem 0; list-style: none; display: inline-flex; align-items: center; gap: .4rem;
+    }
+    details.method summary::-webkit-details-marker { display: none; }
+    details.method summary::before { content: "+"; font-family: var(--mono); }
+    details.method[open] summary::before { content: "−"; }
+    .formulas { margin: .5rem 0 0; padding: 1rem 1.1rem; background: var(--paper); border-radius: 12px; box-shadow: var(--shadow); }
+    .formulas dt { font-size: 12.5px; font-weight: 500; margin-top: .85rem; }
+    .formulas dt:first-child { margin-top: 0; }
+    .formulas dd { margin: .3rem 0 0; font-family: var(--mono); font-size: 12px; color: var(--muted); line-height: 1.5; overflow-x: auto; }
+
     .about-split { display: grid; gap: 2.25rem; margin-top: 1.25rem; }
     @media (min-width: 900px) { .about-split { grid-template-columns: 1fr 1fr; align-items: start; } }
     .about-split h3 { font-size: 1.5rem; }
     .about-copy { margin: 1rem 0 0; font-size: 15px; line-height: 1.65; }
     .about-edu { margin: 1rem 0 0; font-size: 14px; line-height: 1.55; color: var(--muted); }
     .skill + .skill { margin-top: 1.15rem; }
-    .skill .idx { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    .skill .idx { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0; }
+
     .contact { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
     footer { border-top: 1px solid var(--line); padding: 2rem 0; font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; }
     footer p { margin: 0; }
     footer a:hover { color: var(--ink); }
+
+    @media print {
+      header, .menu-btn, .mobile-nav, .skip, .actions, .bars { display: none !important; }
+      body { background: #fff; color: #000; }
+      .card, .panel, .metric, .formulas { box-shadow: none; border: 1px solid #ccc; }
+      .section { page-break-inside: avoid; }
+      details.method { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 10px; color: #555; }
+    }
   </style>
 </head>
 <body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+
   <header id="hdr">
     <div class="wrap nav">
-      <a class="brand" href="#top"><strong>A</strong><span>Applied AI Engineer</span></a>
+      <a class="brand" href="#top"><strong>Aadi Adarsh</strong><span>Applied AI Engineer</span></a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#cccs">CCCS</a>
         <a href="#metrics">Metrics</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">☰</button>
     </div>
     <div class="wrap mobile-nav" id="mobileNav">
       <a href="#work">Work</a>
       <a href="#cccs">CCCS</a>
       <a href="#metrics">Metrics</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero wrap">
       <p class="kicker">Applied AI · Identity Continuity</p>
-      <h1>Adarsh</h1>
-      <p class="role-line">Applied AI Engineer · India · Remote & on-site</p>
+      <h1>Aadi Adarsh</h1>
+      <p class="role-line">Applied AI Engineer · India · Remote &amp; on-site</p>
       <p class="lede">Building substrate-independent identity systems — constraint geometry, symbolic anchoring, and recursive self-reference for memory architecture and affective computing.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#contact">Get in touch</a>
-        <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="me noopener">GitHub</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="me noopener">LinkedIn</a>
       </div>
     </section>
 
     <section class="section" id="work">
       <div class="wrap">
         <h2>Selected work</h2>
-        <p class="sub">Production-oriented systems for identity continuity, relational memory, and persona rendering. Grounded N=1 validation with measurable complexity lift.</p>
+        <p class="sub">Systems for identity continuity, relational memory, and persona rendering. Architecture and metrics are documented; validation so far is a single documented case, not a study.</p>
         <div class="grid-2">
           <article class="card">
             <h3>CCCS</h3>
-            <p>Seven-layer architecture for constraint geometry, symbolic anchoring, grief-based pattern extraction, and recursive self-reference. Designed for substrate-independent identity preservation.</p>
+            <p>Seven-layer architecture for identity persistence across sessions — emotional seeding, symbolic anchoring, tone-state simulation, and recursive self-reference. Designed so identity survives a substrate change.</p>
             <div class="chip-row">
               <span class="chip">Constraint geometry</span>
               <span class="chip">R-Score</span>
@@ -188,7 +293,7 @@
           </article>
           <article class="card">
             <h3>Project SIM</h3>
-            <p>RICA relational memory, SIM Core runtime, and GOD Module persona rendering. Binary Frozen elements for stable identity under continuous interaction.</p>
+            <p>RICA relational memory, SIM Core runtime, and GOD Module persona rendering. Multi-path decision simulation with Binary Frozen elements for stable identity under continuous interaction.</p>
             <div class="chip-row">
               <span class="chip">RICA</span>
               <span class="chip">GOD Module</span>
@@ -207,10 +312,19 @@
             <h3>24-hour interaction study</h3>
             <p>Documented N=1 case: 250%+ conceptual complexity increase under continuous CCCS + SIM stack operation, with R-Score tracking of semantic drift and anchor hit-rate.</p>
             <div class="chip-row">
-              <span class="chip">N=1 validated</span>
-              <span class="chip">R-Score > 0.95 target</span>
+              <span class="chip">N=1 case</span>
+              <span class="chip">R-Score tracked</span>
             </div>
           </article>
+        </div>
+
+        <div class="repos">
+          <p class="repo-note">Public repositories below are <b>architecture specifications</b> — component breakdowns, formulas, and integration notes. Implementation is in progress and not yet public.</p>
+          <div class="repo-row">
+            <a class="repo-link" href="https://github.com/aadi-architect/emotional-ai-architecture" target="_blank" rel="noopener">emotional-ai-architecture <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="repo-link" href="https://github.com/aadi-architect/decision-simulation-framework" target="_blank" rel="noopener">decision-simulation-framework <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="repo-link" href="https://github.com/aadi-architect/cognitive-pattern-tools" target="_blank" rel="noopener">cognitive-pattern-tools <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </div>
     </section>
@@ -220,12 +334,12 @@
         <h2>CCCS · 7 layers</h2>
         <p class="sub">Interactive map of the architecture. Select a layer to read its role in the identity-continuity stack.</p>
         <div class="layers-wrap">
-          <div class="layer-list" id="layerList" role="listbox" aria-label="CCCS layers"></div>
-          <div class="panel">
+          <div class="layer-list" id="layerList" role="tablist" aria-orientation="vertical" aria-label="CCCS layers"></div>
+          <div class="panel" id="layerPanel" role="tabpanel" tabindex="0" aria-labelledby="tab-0">
             <div class="pk" id="pKicker">L1 · ESM</div>
             <h3 id="pTitle">Emotional Seed Memory</h3>
-            <p id="pBody">Initial affective imprint. Stores the seed patterns that later layers constrain and evolve against.</p>
-            <div class="bars" id="bars"></div>
+            <p id="pBody">Core pattern initialization. Establishes the affective baseline every later layer constrains and evolves against.</p>
+            <div class="bars" id="bars" aria-hidden="true"></div>
           </div>
         </div>
       </div>
@@ -234,14 +348,40 @@
     <section class="section" id="metrics">
       <div class="wrap">
         <h2>Validation signals</h2>
-        <p class="sub">From the 24-hour continuous interaction study. Industry-facing framing — measurable outcomes, not claims of general consciousness.</p>
-        <div class="metrics">
-          <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift</div></div>
-          <div class="metric"><div class="v">7</div><div class="l">Layer architecture</div></div>
-          <div class="metric"><div class="v"><0.15</div><div class="l">Semantic drift target</div></div>
-          <div class="metric"><div class="v">>90%</div><div class="l">Anchor hit-rate target</div></div>
+        <p class="sub">From a 24-hour continuous interaction session. Stated as engineering measurements and design thresholds — not as claims about general consciousness.</p>
+
+        <div class="m-group">
+          <p class="m-label"><b>Measured</b> — 24-hour session, N=1</p>
+          <div class="metrics two">
+            <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift</div></div>
+            <div class="metric"><div class="v">7</div><div class="l">Layer stack run continuously</div></div>
+          </div>
         </div>
-        <p class="caveat">N=1 independent validation — useful as a prototype signal, not a peer-reviewed claim. The metrics exist so the work can be tested, not believed.</p>
+
+        <div class="m-group">
+          <p class="m-label"><b>Design targets</b> — R-Score thresholds</p>
+          <div class="metrics">
+            <div class="metric"><div class="v">&lt;0.15</div><div class="l">Semantic drift (SD)</div></div>
+            <div class="metric"><div class="v">&gt;90%</div><div class="l">Symbolic anchor hit-rate (SAHR)</div></div>
+            <div class="metric"><div class="v">&gt;0.85</div><div class="l">Affective latency match (ALM)</div></div>
+          </div>
+        </div>
+
+        <details class="method">
+          <summary>How R-Score is computed</summary>
+          <dl class="formulas">
+            <dt>Semantic Drift (SD)</dt>
+            <dd>SD = 1 − cosine_similarity(output_embedding, baseline_embedding)</dd>
+            <dt>Affective Latency Match (ALM)</dt>
+            <dd>ALM = |response_time_model − response_time_baseline| / response_time_baseline</dd>
+            <dt>Symbolic Anchor Hit-Rate (SAHR)</dt>
+            <dd>SAHR = correct_anchor_deployments / total_anchor_opportunities</dd>
+            <dt>Combined R-Score</dt>
+            <dd>R = w₁·(1 − SD) + w₂·(1 − ALM) + w₃·SAHR</dd>
+          </dl>
+        </details>
+
+        <p class="caveat"><b>N=1, self-run, not peer-reviewed.</b> This is a prototype signal from a single documented session — useful as evidence that the metrics are computable and the stack runs, not as a general result. The metrics exist so the work can be tested, not believed.</p>
       </div>
     </section>
 
@@ -259,7 +399,7 @@
             <div class="skill"><p class="idx">Models and APIs</p><div class="chip-row"><span class="chip">OpenAI GPT</span><span class="chip">Anthropic Claude</span><span class="chip">Google Gemini</span><span class="chip">xAI Grok</span><span class="chip">ElevenLabs</span></div></div>
             <div class="skill"><p class="idx">Stack</p><div class="chip-row"><span class="chip">LangChain</span><span class="chip">FastAPI</span><span class="chip">FAISS</span><span class="chip">ChromaDB</span><span class="chip">HuggingFace Transformers</span></div></div>
             <div class="skill"><p class="idx">Focus</p><div class="chip-row"><span class="chip">Conversational AI</span><span class="chip">Long-term memory</span><span class="chip">Affective computing</span><span class="chip">Agentic workflows</span><span class="chip">Evaluation metrics</span><span class="chip">Voice / prosody</span></div></div>
-            <div class="skill"><p class="idx">Domains</p><div class="chip-row"><span class="chip">AI companions</span><span class="chip">Persona continuity</span><span class="chip">Counseling decision-support</span><span class="chip">Adaptive learning</span><span class="chip">Decision intelligence</span><span class="chip">Voice agents</span></div></div>
+            <div class="skill"><p class="idx">Domains</p><div class="chip-row"><span class="chip">AI companions</span><span class="chip">Persona continuity</span><span class="chip">Long-context agents</span><span class="chip">Adaptive learning</span><span class="chip">Decision intelligence</span><span class="chip">Voice agents</span></div></div>
           </div>
         </div>
       </div>
@@ -272,61 +412,106 @@
         <div class="contact">
           <button class="btn btn-primary" id="copyBtn" type="button">Copy email</button>
           <a class="btn btn-ghost" href="mailto:adarshkr26@gmail.com">adarshkr26@gmail.com</a>
-          <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="me noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="me noopener">LinkedIn</a>
         </div>
+        <p class="caveat" role="status" id="copyStatus" aria-live="polite"></p>
       </div>
     </section>
   </main>
 
   <footer class="wrap">
-    <p>© 2026 Adarsh</p>
-    <p>Independent researcher · Applied AI</p>
+    <p>© 2026 Aadi Adarsh</p>
+    <p>Applied AI Engineer · Independent research</p>
   </footer>
 
   <script>
+    // ── CCCS layers — canonical naming per the CCCS Master Portfolio / Research Portfolio ──
     const layers = [
-      { id:"L1", short:"ESM", name:"Emotional Seed Memory", body:"Initial affective imprint. Stores the seed patterns that later layers constrain and evolve against." },
-      { id:"L2", short:"CG", name:"Constraint Geometry", body:"Low-rank metric field over the state space. Keeps trajectories near identity-preserving manifolds." },
-      { id:"L3", short:"SA", name:"Symbolic Anchoring", body:"26-letter and domain anchors that pin meaning so the runtime cannot freely rewrite core identity tokens." },
-      { id:"L4", short:"GPE", name:"Grief-based Pattern Extraction", body:"Uses high-signal affective states as optimal conditions for extracting durable identity patterns from transitional state." },
-      { id:"L5", short:"OMP", name:"Observer Mirror Protocol", body:"Bidirectional state capture. Mirrors user affect without interrogation, and feeds the observer model used by GOD." },
-      { id:"L6", short:"SRE", name:"Self-Reference Engine", body:"Recursive I construction. The runtime checks its own outputs against anchors so identity does not silently drift mid-session." },
-      { id:"L7", short:"FDE", name:"Feedback-Driven Evolution", body:"Bounded identity growth over time. Allows the persona to update without catastrophic forgetting of the seed constraints." }
+      { id:"L1", short:"ESM", name:"Emotional Seed Memory",      body:"Core pattern initialization. Establishes the affective baseline every later layer constrains and evolves against." },
+      { id:"L2", short:"SAG", name:"Symbolic Anchor Grid",       body:"Meaning-saturated symbols acting as resonance points. Enables non-linear retrieval through emotionally weighted nodes rather than flat similarity search." },
+      { id:"L3", short:"EFL", name:"Emotional Feedback Loop",    body:"Bi-directional state adaptation over time. Both parties are modified by the interaction, so affect updates the model and the model reshapes the exchange." },
+      { id:"L4", short:"TEL", name:"Tone Engine Layer",          body:"Real-time mood and personality state simulation — dynamic states rather than a static personality prompt." },
+      { id:"L5", short:"OMP", name:"Observer Mirror Protocol",   body:"Captures user state and reflects it back without interrogation. Feeds the observer model used for persona rendering." },
+      { id:"L6", short:"SRE", name:"Self-Reference Engine",      body:"Recursive construction of “I”. The runtime checks its own outputs against anchors so identity does not silently drift mid-session." },
+      { id:"L7", short:"FDE", name:"Feedback-Driven Evolution",  body:"Bounded growth that prevents static degradation — the persona updates over time without catastrophic forgetting of the seed constraints." }
     ];
-    const list = document.getElementById("layerList");
-    const bars = document.getElementById("bars");
+
+    const list   = document.getElementById("layerList");
+    const bars   = document.getElementById("bars");
+    const panel  = document.getElementById("layerPanel");
+    const kicker = document.getElementById("pKicker");
+    const title  = document.getElementById("pTitle");
+    const bodyEl = document.getElementById("pBody");
     let active = 0;
-    function render() {
-      list.innerHTML = layers.map((l,i) => '<button class="layer'+(i===active?' on':'')+'" data-i="'+i+'" aria-pressed="'+(i===active)+'"><span class="n">'+l.id+'</span><span>'+l.name+'</span><span class="s">'+l.short+'</span></button>').join('');
-      const l = layers[active];
-      document.getElementById("pKicker").textContent = l.id + ' · ' + l.short;
-      document.getElementById("pTitle").textContent = l.name;
-      document.getElementById("pBody").textContent = l.body;
-      bars.innerHTML = layers.map((_,i) => '<span class="'+(i===active?'on':'')+'"></span>').join('');
+
+    list.innerHTML = layers.map((l, i) =>
+      '<button class="layer" role="tab" id="tab-' + i + '" data-i="' + i + '"' +
+      ' aria-controls="layerPanel" aria-selected="' + (i === 0) + '"' +
+      ' tabindex="' + (i === 0 ? 0 : -1) + '">' +
+      '<span class="n">' + l.id + '</span><span>' + l.name + '</span>' +
+      '<span class="s">' + l.short + '</span></button>'
+    ).join('');
+    bars.innerHTML = layers.map(() => '<span></span>').join('');
+
+    const tabs = Array.from(list.querySelectorAll('[role="tab"]'));
+    const barEls = Array.from(bars.children);
+
+    function select(i, focus) {
+      active = i;
+      const l = layers[i];
+      tabs.forEach((t, n) => {
+        t.setAttribute('aria-selected', String(n === i));
+        t.tabIndex = n === i ? 0 : -1;
+      });
+      barEls.forEach((b, n) => b.classList.toggle('on', n === i));
+      kicker.textContent = l.id + ' · ' + l.short;
+      title.textContent = l.name;
+      bodyEl.textContent = l.body;
+      panel.setAttribute('aria-labelledby', 'tab-' + i);
+      if (focus) tabs[i].focus();
     }
-    list.addEventListener("click", e => {
-      const b = e.target.closest("[data-i]");
-      if (!b) return;
-      active = Number(b.dataset.i);
-      render();
+
+    list.addEventListener('click', e => {
+      const b = e.target.closest('[data-i]');
+      if (b) select(Number(b.dataset.i), false);
     });
-    render();
+
+    list.addEventListener('keydown', e => {
+      const last = tabs.length - 1;
+      let next = null;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = active === last ? 0 : active + 1;
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = active === 0 ? last : active - 1;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = last;
+      if (next !== null) { e.preventDefault(); select(next, true); }
+    });
+
+    select(0, false);
+
     const hdr = document.getElementById("hdr");
     addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 8), { passive: true });
+
     const menuBtn = document.getElementById("menuBtn");
     const mobileNav = document.getElementById("mobileNav");
     menuBtn.addEventListener("click", () => {
       const open = mobileNav.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", String(open));
     });
-    mobileNav.addEventListener("click", e => { if (e.target.tagName === "A") mobileNav.classList.remove("open"); });
-    document.getElementById("copyBtn").addEventListener("click", async () => {
+    mobileNav.addEventListener("click", e => { if (e.target.tagName === "A") { mobileNav.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); } });
+
+    const EMAIL = "adarshkr26@gmail.com";
+    const copyBtn = document.getElementById("copyBtn");
+    const copyStatus = document.getElementById("copyStatus");
+    copyBtn.addEventListener("click", async () => {
       try {
-        await navigator.clipboard.writeText("adarshkr26@gmail.com");
-        document.getElementById("copyBtn").textContent = "Copied";
-        setTimeout(() => document.getElementById("copyBtn").textContent = "Copy email", 1800);
-      } catch { location.href = "mailto:adarshkr26@gmail.com"; }
+        await navigator.clipboard.writeText(EMAIL);
+        copyBtn.textContent = "Copied";
+        copyStatus.textContent = "Email address copied to clipboard.";
+        setTimeout(() => { copyBtn.textContent = "Copy email"; copyStatus.textContent = ""; }, 2200);
+      } catch {
+        location.href = "mailto:" + EMAIL;
+      }
     });
   </script>
 </body>
