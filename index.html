@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" />
+  <script>document.documentElement.classList.add("js")</script>
 
   <script type="application/ld+json">
   {
@@ -70,7 +71,30 @@
     }
     * { box-sizing: border-box; }
     html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; background: var(--bg); }
-    body { margin: 0; font-family: var(--sans); background: var(--bg); color: var(--ink); min-height: 100dvh; }
+    body {
+      margin: 0; font-family: var(--sans); background: var(--bg); color: var(--ink);
+      min-height: 100dvh; position: relative; isolation: isolate; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; z-index: -2; inset: -25vmax; pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(181,68,31,.12), transparent 24%),
+        radial-gradient(circle at 82% 34%, rgba(92,76,55,.09), transparent 28%),
+        radial-gradient(circle at 52% 88%, rgba(181,68,31,.07), transparent 24%);
+      filter: blur(24px); animation: ambientDrift 20s ease-in-out infinite alternate;
+    }
+    body::after {
+      content: ""; position: fixed; z-index: -1; inset: 0; pointer-events: none; opacity: .22;
+      background-image:
+        linear-gradient(rgba(20,18,15,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,18,15,.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, #000, transparent 75%);
+    }
+    @keyframes ambientDrift {
+      from { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+      to { transform: translate3d(2%, 1.5%, 0) scale(1.04); }
+    }
     h1,h2,h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; }
     p { text-wrap: pretty; }
     a { color: inherit; text-decoration: none; }
@@ -83,6 +107,8 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+      body::before { animation: none; }
     }
 
     .skip {
@@ -107,7 +133,13 @@
     .brand strong { font-family: var(--display); font-size: 1.25rem; font-weight: 400; white-space: nowrap; }
     .brand span { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
     .nav-links { display: none; gap: 1.5rem; font-size: 13px; color: var(--muted); }
-    .nav-links a:hover { color: var(--ink); }
+    .nav-links a { position: relative; transition: color .2s ease; }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; right: 100%; bottom: -.45rem; height: 1px;
+      background: var(--accent); transition: right .25s ease;
+    }
+    .nav-links a:hover, .nav-links a[aria-current="true"] { color: var(--ink); }
+    .nav-links a[aria-current="true"]::after { right: 0; }
     @media (min-width: 768px) {
       .nav-links { display: flex; }
       .brand span { display: inline; }
@@ -127,10 +159,17 @@
     .mobile-nav a { padding: .75rem .5rem; border-radius: 8px; color: var(--muted); font-size: 14px; }
     .mobile-nav a:hover { background: var(--chip); color: var(--ink); }
 
-    .hero { padding: 4.5rem 0 3.5rem; }
-    @media (min-width: 768px) { .hero { padding: 6rem 0 4.5rem; } }
+    .hero {
+      padding-top: 4.5rem; padding-bottom: 3.5rem;
+      display: grid; gap: 3rem; align-items: center;
+    }
+    .hero-copy { position: relative; z-index: 2; }
+    @media (min-width: 860px) {
+      .hero { min-height: calc(100svh - 3.5rem); padding-top: 4rem; padding-bottom: 4.5rem; grid-template-columns: 1.08fr .92fr; }
+    }
     .kicker { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 500; }
-    h1 { font-size: clamp(2.5rem, 7.5vw, 4.25rem); line-height: 1.05; letter-spacing: -0.02em; }
+    h1 { font-size: clamp(3.2rem, 8.8vw, 6.4rem); line-height: .92; letter-spacing: -0.035em; }
+    h1 em { color: var(--accent); font-weight: 400; }
     .role-line { margin: .85rem 0 0; font-size: 15px; font-weight: 500; letter-spacing: .01em; color: var(--muted); }
     .lede { margin-top: 1.25rem; max-width: 36rem; font-size: 1.125rem; line-height: 1.55; color: var(--muted); }
     .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
@@ -150,8 +189,14 @@
 
     .grid-2 { display: grid; gap: 1rem; }
     @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-    .card { background: var(--paper); border-radius: 16px; padding: 1.35rem 1.4rem; box-shadow: var(--shadow); transition: box-shadow .15s ease; }
-    .card:hover { box-shadow: var(--shadow-h); }
+    .card {
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(181,68,31,.11), transparent 42%),
+        var(--paper);
+      border-radius: 16px; padding: 1.35rem 1.4rem; box-shadow: var(--shadow);
+      transition: box-shadow .25s ease, transform .25s ease;
+    }
+    .card:hover { box-shadow: var(--shadow-h); transform: translateY(-3px); }
     .card h3 { font-size: 1.25rem; margin-bottom: .35rem; }
     .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
     .chip-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
@@ -181,7 +226,17 @@
     .layer[aria-selected="true"] { background: var(--paper); border-color: var(--line-strong); color: var(--ink); box-shadow: var(--shadow); }
     .layer .n { font-family: var(--display); font-size: 1.05rem; width: 2rem; color: var(--accent); }
     .layer .s { margin-left: auto; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
-    .panel { background: var(--paper); border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow); min-height: 11rem; }
+    .panel {
+      background: color-mix(in srgb, var(--paper) 92%, transparent); border-radius: 16px;
+      padding: 1.5rem; box-shadow: var(--shadow); min-height: 11rem;
+      position: relative; overflow: hidden; isolation: isolate;
+    }
+    .panel::after {
+      content: ""; position: absolute; z-index: -1; width: 14rem; aspect-ratio: 1;
+      right: -5rem; bottom: -7rem; border-radius: 50%;
+      border: 1px solid rgba(181,68,31,.18); box-shadow: 0 0 0 2rem rgba(181,68,31,.025), 0 0 0 4rem rgba(181,68,31,.018);
+      transform: scale(var(--layer-scale, .72)); transition: transform .5s cubic-bezier(.2,.8,.2,1);
+    }
     .panel .pk { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
     .panel h3 { font-size: 1.5rem; margin-bottom: .5rem; }
     .panel p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14.5px; }
@@ -225,6 +280,65 @@
     .skill + .skill { margin-top: 1.15rem; }
     .skill .idx { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0; }
 
+    .signal-field {
+      display: none; position: relative; min-height: 26rem; width: min(100%, 27rem);
+      justify-self: end; place-items: center;
+    }
+    .signal-orbit {
+      position: absolute; left: 50%; top: 50%; border: 1px solid rgba(20,18,15,.16);
+      border-radius: 50%; transform: translate(-50%, -50%);
+    }
+    .signal-orbit.a { width: 13rem; height: 13rem; animation: orbitBreath 7s ease-in-out infinite; }
+    .signal-orbit.b { width: 20rem; height: 20rem; border-style: dashed; animation: orbitSpin 34s linear infinite; }
+    .signal-orbit.c { width: 25rem; height: 25rem; opacity: .5; animation: orbitSpin 52s linear infinite reverse; }
+    .signal-core {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 7.5rem; aspect-ratio: 1; border-radius: 50%; display: grid; place-content: center;
+      text-align: center; background: rgba(255,250,242,.68); border: 1px solid var(--line-strong);
+      box-shadow: 0 0 4rem rgba(181,68,31,.13), inset 0 0 0 8px rgba(181,68,31,.025);
+      backdrop-filter: blur(10px);
+    }
+    .signal-core span { font-family: var(--display); font-size: 1.7rem; }
+    .signal-core small { margin-top: .15rem; font-size: 8px; letter-spacing: .22em; color: var(--accent); }
+    .signal-node {
+      position: absolute; display: flex; align-items: center; gap: .35rem;
+      font: 500 9px/1 var(--mono); letter-spacing: .1em; color: var(--muted);
+    }
+    .signal-node i {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(181,68,31,.3); animation: signalPulse 2.8s ease-out infinite;
+    }
+    .signal-node:nth-of-type(5) i { animation-delay: .35s; }
+    .signal-node:nth-of-type(6) i { animation-delay: .7s; }
+    .signal-node:nth-of-type(7) i { animation-delay: 1.05s; }
+    .signal-node:nth-of-type(8) i { animation-delay: 1.4s; }
+    .signal-node:nth-of-type(9) i { animation-delay: 1.75s; }
+    .signal-node:nth-of-type(10) i { animation-delay: 2.1s; }
+    .signal-node.n1 { left: 46%; top: 4%; }
+    .signal-node.n2 { right: 3%; top: 24%; }
+    .signal-node.n3 { right: 1%; top: 66%; }
+    .signal-node.n4 { left: 47%; bottom: 3%; }
+    .signal-node.n5 { left: 3%; top: 69%; }
+    .signal-node.n6 { left: 1%; top: 29%; }
+    .signal-node.n7 { right: 16%; top: 46%; }
+    @keyframes orbitBreath { 50% { transform: translate(-50%, -50%) scale(1.06); border-color: rgba(181,68,31,.38); } }
+    @keyframes orbitSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+    @keyframes signalPulse { 65%, 100% { box-shadow: 0 0 0 12px rgba(181,68,31,0); } }
+    @media (min-width: 860px) { .signal-field { display: grid; } }
+
+    .scroll-progress {
+      position: fixed; z-index: 70; left: 0; top: 0; width: 100%; height: 2px;
+      transform: scaleX(0); transform-origin: left; background: var(--accent);
+    }
+
+    .js .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.75,.25,1);
+    }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+    .js .reveal[data-delay="1"] { transition-delay: .08s; }
+    .js .reveal[data-delay="2"] { transition-delay: .16s; }
+
     .contact { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
     footer { border-top: 1px solid var(--line); padding: 2rem 0; font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; }
     footer p { margin: 0; }
@@ -242,6 +356,7 @@
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <header id="hdr">
     <div class="wrap nav">
@@ -266,14 +381,29 @@
 
   <main id="main">
     <section class="hero wrap">
-      <p class="kicker">Applied AI · Identity Continuity</p>
-      <h1>Aadi Adarsh</h1>
-      <p class="role-line">Applied AI Engineer · India · Remote &amp; on-site</p>
-      <p class="lede">Building substrate-independent identity systems — constraint geometry, symbolic anchoring, and recursive self-reference for memory architecture and affective computing.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#contact">Get in touch</a>
-        <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="me noopener">GitHub</a>
-        <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="me noopener">LinkedIn</a>
+      <div class="hero-copy reveal">
+        <p class="kicker">Applied AI · Identity Continuity</p>
+        <h1>Aadi <em>Adarsh</em></h1>
+        <p class="role-line">Applied AI Engineer · India · Remote &amp; on-site</p>
+        <p class="lede">Building substrate-independent identity systems — constraint geometry, symbolic anchoring, and recursive self-reference for memory architecture and affective computing.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="me noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="me noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="signal-field reveal" data-delay="1" aria-hidden="true">
+        <div class="signal-orbit a"></div>
+        <div class="signal-orbit b"></div>
+        <div class="signal-orbit c"></div>
+        <div class="signal-core"><span>CCCS</span><small>IDENTITY STACK</small></div>
+        <span class="signal-node n1"><i></i>ESM</span>
+        <span class="signal-node n2"><i></i>SAG</span>
+        <span class="signal-node n3"><i></i>EFL</span>
+        <span class="signal-node n4"><i></i>TEL</span>
+        <span class="signal-node n5"><i></i>OMP</span>
+        <span class="signal-node n6"><i></i>SRE</span>
+        <span class="signal-node n7"><i></i>FDE</span>
       </div>
     </section>
 
@@ -469,6 +599,7 @@
       title.textContent = l.name;
       bodyEl.textContent = l.body;
       panel.setAttribute('aria-labelledby', 'tab-' + i);
+      panel.style.setProperty('--layer-scale', String(.72 + i * .055));
       if (focus) tabs[i].focus();
     }
 
@@ -499,6 +630,50 @@
       menuBtn.setAttribute("aria-expanded", String(open));
     });
     mobileNav.addEventListener("click", e => { if (e.target.tagName === "A") { mobileNav.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); } });
+
+    const progress = document.getElementById("scrollProgress");
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.style.transform = "scaleX(" + (max > 0 ? scrollY / max : 0) + ")";
+    };
+    addEventListener("scroll", updateProgress, { passive: true });
+    addEventListener("resize", updateProgress, { passive: true });
+    updateProgress();
+
+    const revealItems = [
+      ...document.querySelectorAll(".hero-copy, .signal-field, .section .wrap > *")
+    ];
+    revealItems.forEach((el, i) => {
+      el.classList.add("reveal");
+      if (i % 3 === 1) el.dataset.delay = "1";
+      if (i % 3 === 2) el.dataset.delay = "2";
+    });
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+    revealItems.forEach(el => revealObserver.observe(el));
+
+    const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => link.toggleAttribute("aria-current", link.hash === "#" + entry.target.id));
+      });
+    }, { rootMargin: "-25% 0px -65% 0px" });
+    document.querySelectorAll("main section[id]").forEach(section => sectionObserver.observe(section));
+
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("pointermove", e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", ((e.clientX - rect.left) / rect.width * 100) + "%");
+        card.style.setProperty("--my", ((e.clientY - rect.top) / rect.height * 100) + "%");
+      });
+    });
 
     const EMAIL = "adarshkr26@gmail.com";
     const copyBtn = document.getElementById("copyBtn");
