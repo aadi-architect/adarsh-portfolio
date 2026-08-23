@@ -3,42 +3,168 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adarsh</title>
-  <meta name="description" content="Adarsh — Applied AI engineer. Identity-continuity systems, memory architecture, and affective computing. CCCS · Project SIM." />
+  <title>Aadi Adarsh — Applied AI Engineer</title>
+  <meta name="description" content="Aadi Adarsh — applied AI engineer. Identity-continuity systems, long-term memory architecture, and affective computing. CCCS framework · Project SIM." />
+  <meta name="author" content="Aadi Adarsh" />
   <meta name="theme-color" content="#f6f1e8" />
-  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ══ CANONICAL ORIGIN — change these 2 lines if the domain changes ══ -->
+  <link rel="canonical" href="https://aadiadarsh.dev/" />
+  <meta property="og:url" content="https://aadiadarsh.dev/" />
+
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Adarsh" />
-  <meta property="og:description" content="Applied AI engineer · memory architecture · affective computing" />
-  <meta property="og:image" content="/og.jpg" />
+  <meta property="og:site_name" content="Aadi Adarsh" />
+  <meta property="og:title" content="Aadi Adarsh — Applied AI Engineer" />
+  <meta property="og:description" content="Identity-continuity systems, long-term memory architecture, and affective computing. CCCS framework · Project SIM." />
+  <meta property="og:image" content="https://aadiadarsh.dev/og.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Aadi Adarsh — Applied AI Engineer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aadi Adarsh — Applied AI Engineer" />
+  <meta name="twitter:description" content="Identity-continuity systems, long-term memory architecture, and affective computing." />
+  <meta name="twitter:image" content="https://aadiadarsh.dev/og.png" />
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" />
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      const savedTheme = localStorage.getItem("aadi-theme");
+      if (savedTheme === "dark") document.documentElement.dataset.theme = "dark";
+    } catch {}
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aadi Adarsh",
+    "alternateName": "Adarsh Kumar",
+    "jobTitle": "Applied AI Engineer",
+    "email": "mailto:adarshkr26@gmail.com",
+    "url": "https://aadiadarsh.dev/",
+    "image": "https://aadiadarsh.dev/og.png",
+    "description": "Applied AI engineer working on identity-continuity systems, long-term memory architecture, and affective computing.",
+    "knowsAbout": ["Applied AI","Large language models","Long-term memory architecture","Affective computing","Agentic workflows","Evaluation metrics","Conversational AI"],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Chandigarh University" },
+    "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+    "sameAs": [
+      "https://github.com/aadi-architect",
+      "https://linkedin.com/in/adarshkumar-ai-research"
+    ]
+  }
+  </script>
+
   <style>
     :root {
-      --bg: #f6f1e8;
-      --ink: #14120f;
-      --muted: #6e675e;
-      --line: #d9d0c2;
-      --accent: #b5441f;
-      --paper: #fffaf2;
-      --chip: #efe6d6;
+      --bg: #f2efe5;
+      --ink: #1c211a;
+      --muted: #68705d;
+      --line: #d2d2c1;
+      --line-strong: #929a78;   /* 3:1 vs --bg — for interactive borders (WCAG 1.4.11) */
+      --accent: #778452;
+      --accent-warm: #b7653e;
+      --paper: #faf8ef;
+      --paper-moss: #e4e7d5;
+      --chip: #e6e7d8;
       --sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
       --display: "Instrument Serif", "Times New Roman", serif;
       --shadow: 0px 0px 0px 1px rgba(20,18,15,.07), 0px 1px 2px -1px rgba(20,18,15,.06), 0px 2px 8px 0px rgba(20,18,15,.04);
       --shadow-h: 0px 0px 0px 1px rgba(20,18,15,.12), 0px 4px 16px -4px rgba(20,18,15,.1);
     }
+    html[data-theme="dark"] {
+      --bg: #11140f;
+      --ink: #f0eee5;
+      --muted: #aab2a0;
+      --line: #30372c;
+      --line-strong: #6c785e;
+      --accent: #a5b77a;
+      --accent-warm: #d38150;
+      --paper: #1a1f18;
+      --paper-moss: #222a1f;
+      --chip: #283025;
+      --shadow: 0 0 0 1px rgba(210,220,194,.07), 0 2px 5px rgba(0,0,0,.26), 0 18px 46px rgba(0,0,0,.2);
+      --shadow-h: 0 0 0 1px rgba(210,220,194,.13), 0 6px 16px rgba(0,0,0,.28), 0 24px 58px rgba(0,0,0,.25);
+    }
+    html[data-theme="dark"] body::before {
+      background:
+        radial-gradient(circle at 14% 16%, rgba(133,153,86,.14), transparent 25%),
+        radial-gradient(circle at 84% 28%, rgba(183,101,62,.1), transparent 30%),
+        radial-gradient(circle at 54% 88%, rgba(119,132,82,.08), transparent 24%);
+    }
+    html[data-theme="dark"] body::after { opacity: .34; filter: invert(1); }
+    html[data-theme="dark"] h1 em { color: #b3c58b; }
+    html[data-theme="dark"] .card:nth-child(2),
+    html[data-theme="dark"] .card:nth-child(3) {
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(165,183,122,.12), transparent 42%),
+        color-mix(in srgb, var(--paper-moss) 92%, transparent);
+    }
+    html[data-theme="dark"] .panel {
+      background: linear-gradient(145deg, rgba(30,36,28,.96), rgba(35,43,32,.86));
+    }
+    html[data-theme="dark"] .chip { background: rgba(255,255,255,.045); }
+    html[data-theme="dark"] .signal-core { background: rgba(20,25,18,.8); }
+    html[data-theme="dark"] .metric,
+    html[data-theme="dark"] .formulas { background: color-mix(in srgb, var(--paper) 94%, transparent); }
+
     * { box-sizing: border-box; }
     html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; background: var(--bg); }
-    body { margin: 0; font-family: var(--sans); background: var(--bg); color: var(--ink); min-height: 100dvh; }
+    body {
+      margin: 0; font-family: var(--sans); background: var(--bg); color: var(--ink);
+      min-height: 100dvh; position: relative; isolation: isolate; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; z-index: -2; inset: -25vmax; pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 16%, rgba(164,177,119,.22), transparent 25%),
+        radial-gradient(circle at 84% 28%, rgba(119,132,82,.16), transparent 30%),
+        radial-gradient(circle at 54% 88%, rgba(183,101,62,.075), transparent 24%);
+      filter: blur(24px); animation: ambientDrift 20s ease-in-out infinite alternate;
+    }
+    body::after {
+      content: ""; position: fixed; z-index: -1; inset: 0; pointer-events: none; opacity: .22;
+      background-image:
+        linear-gradient(rgba(28,33,26,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28,33,26,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, #000, transparent 75%);
+    }
+    @keyframes ambientDrift {
+      from { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+      to { transform: translate3d(2%, 1.5%, 0) scale(1.04); }
+    }
     h1,h2,h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; }
     p { text-wrap: pretty; }
     a { color: inherit; text-decoration: none; }
     button { font: inherit; cursor: pointer; }
     ::selection { background: var(--accent); color: var(--bg); }
+
+    /* Visible keyboard focus everywhere */
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+      body::before { animation: none; }
+    }
+
+    .skip {
+      position: absolute; left: .75rem; top: -3rem; z-index: 60;
+      background: var(--ink); color: var(--bg); padding: .6rem 1rem;
+      border-radius: 8px; font-size: 13px; transition: top .15s ease;
+    }
+    .skip:focus { top: .75rem; }
+
     .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
     @media (min-width: 640px) { .wrap { padding: 0 2rem; } }
+
     header {
       position: sticky; top: 0; z-index: 40;
       background: color-mix(in srgb, var(--bg) 88%, transparent);
@@ -46,12 +172,19 @@
       border-bottom: 1px solid transparent;
     }
     header.scrolled { border-bottom-color: var(--line); }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 3.75rem; }
+    .nav-actions { display: flex; align-items: center; gap: .55rem; }
     .brand { display: flex; align-items: baseline; gap: .5rem; }
-    .brand strong { font-family: var(--display); font-size: 1.25rem; font-weight: 400; }
-    .brand span { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+    .brand strong { font-family: var(--display); font-size: 1.7rem; line-height: 1; font-weight: 400; white-space: nowrap; letter-spacing: -.12em; }
+    .brand span { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-left: .35rem; }
     .nav-links { display: none; gap: 1.5rem; font-size: 13px; color: var(--muted); }
-    .nav-links a:hover { color: var(--ink); }
+    .nav-links a { position: relative; transition: color .2s ease; }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; right: 100%; bottom: -.45rem; height: 1px;
+      background: var(--accent); transition: right .25s ease;
+    }
+    .nav-links a:hover, .nav-links a[aria-current] { color: var(--ink); }
+    .nav-links a[aria-current]::after { right: 0; }
     @media (min-width: 768px) {
       .nav-links { display: flex; }
       .brand span { display: inline; }
@@ -60,46 +193,129 @@
     @media (max-width: 767px) { .brand span { display: none; } }
     .menu-btn {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 2.25rem; height: 2.25rem; border: 1px solid var(--line);
-      border-radius: 8px; background: transparent; color: var(--ink);
+      width: 2.5rem; height: 2.5rem; border: 1px solid var(--line-strong);
+      border-radius: 999px; background: color-mix(in srgb, var(--paper) 72%, transparent); color: var(--ink);
     }
+    .theme-toggle {
+      position: relative; width: 2.5rem; height: 2.5rem; padding: 0; overflow: hidden;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      background: color-mix(in srgb, var(--paper) 76%, transparent);
+      color: var(--ink); box-shadow: inset 0 1px 0 rgba(255,255,255,.48), 0 7px 18px rgba(45,52,35,.08);
+      transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+    }
+    .theme-toggle:hover { transform: translateY(-2px) rotate(4deg); box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 11px 24px rgba(45,52,35,.14); }
+    .theme-toggle .sun, .theme-toggle .moon {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      transition: transform .55s cubic-bezier(.2,.85,.2,1), opacity .35s ease;
+    }
+    .theme-toggle .sun::before {
+      content: ""; width: .62rem; aspect-ratio: 1; border-radius: 50%;
+      background: var(--accent-warm); box-shadow: 0 0 0 4px rgba(183,101,62,.12), 0 0 14px rgba(183,101,62,.34);
+    }
+    .theme-toggle .sun::after {
+      content: "✦"; position: absolute; font-size: 1.5rem; color: var(--accent-warm);
+      animation: sunTurn 8s linear infinite;
+    }
+    .theme-toggle .moon { transform: translateY(130%) rotate(-35deg); opacity: 0; }
+    .theme-toggle .moon::before {
+      content: ""; width: .9rem; aspect-ratio: 1; border-radius: 50%;
+      background: var(--ink); box-shadow: -.28rem -.12rem 0 .02rem var(--paper);
+    }
+    html[data-theme="dark"] .theme-toggle .sun { transform: translateY(-130%) rotate(35deg); opacity: 0; }
+    html[data-theme="dark"] .theme-toggle .moon { transform: none; opacity: 1; }
+    @keyframes sunTurn { to { transform: rotate(360deg); } }
     .mobile-nav {
       display: none; flex-direction: column; gap: .25rem; padding: .5rem 0 1rem;
       border-top: 1px solid var(--line);
     }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a { padding: .65rem .5rem; border-radius: 8px; color: var(--muted); font-size: 14px; }
+    .mobile-nav a { padding: .75rem .5rem; border-radius: 8px; color: var(--muted); font-size: 14px; }
     .mobile-nav a:hover { background: var(--chip); color: var(--ink); }
-    .hero { padding: 4.5rem 0 3.5rem; }
-    @media (min-width: 768px) { .hero { padding: 6rem 0 4.5rem; } }
-    .kicker {
-      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1rem; font-weight: 500;
+
+    .hero {
+      padding-top: 4.5rem; padding-bottom: 3.5rem;
+      display: grid; gap: 3rem; align-items: center;
     }
-    h1 { font-size: clamp(2.75rem, 8vw, 4.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+    .hero-copy { position: relative; z-index: 2; }
+    @media (min-width: 860px) {
+      .hero { min-height: calc(100svh - 3.5rem); padding-top: 4rem; padding-bottom: 4.5rem; grid-template-columns: 1.08fr .92fr; }
+    }
+    .kicker { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 500; }
+    h1 { font-size: clamp(3.2rem, 8.8vw, 6.4rem); line-height: .92; letter-spacing: -0.035em; }
+    h1 em { color: #657244; font-weight: 400; }
     .role-line { margin: .85rem 0 0; font-size: 15px; font-weight: 500; letter-spacing: .01em; color: var(--muted); }
     .lede { margin-top: 1.25rem; max-width: 36rem; font-size: 1.125rem; line-height: 1.55; color: var(--muted); }
     .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
     .btn {
       display: inline-flex; align-items: center; gap: .5rem;
       padding: .7rem 1.1rem; border-radius: 999px; font-size: 13px; font-weight: 500;
-      border: 1px solid transparent; transition: .15s ease;
+      border: 1px solid transparent; transition: .15s ease; min-height: 2.75rem;
     }
-    .btn-primary { background: var(--ink); color: var(--bg); }
-    .btn-primary:hover { background: #2a2620; }
-    .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
-    .btn-ghost:hover { border-color: var(--ink); }
-    .section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
-    .section h2 { font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: .75rem; }
-    .section .sub { color: var(--muted); max-width: 36rem; margin-bottom: 2rem; line-height: 1.55; }
+    .btn-primary { background: var(--accent); color: #fffdf7; box-shadow: 0 10px 28px rgba(88,102,54,.16); }
+    .btn-primary:hover { background: #657244; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; border-color: var(--line-strong); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--ink); background: var(--paper); }
+
+    .section { padding: 4.25rem 0; border-top: 1px solid var(--line); position: relative; }
+    .section h2 {
+      position: relative; isolation: isolate; width: fit-content;
+      font-size: clamp(2.15rem, 5vw, 3.1rem); line-height: 1; letter-spacing: -.018em;
+      margin-bottom: 1.15rem; padding-left: 1.05rem;
+    }
+    .section h2::before {
+      content: ""; position: absolute; z-index: -1; left: 0; top: 8%; width: 3px; height: 84%;
+      border-radius: 999px; background: linear-gradient(var(--accent-warm), var(--accent));
+      box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 48%, transparent);
+    }
+    .section h2::after {
+      content: ""; position: absolute; z-index: -2; left: -.8rem; top: 50%; width: 120%; height: 140%;
+      transform: translateY(-50%); border-radius: 50%;
+      background: radial-gradient(ellipse at left, color-mix(in srgb, var(--accent) 13%, transparent), transparent 68%);
+      filter: blur(10px); pointer-events: none;
+    }
+    .section .sub {
+      color: var(--muted); max-width: 38rem; margin-bottom: 2.35rem;
+      font-size: .97rem; line-height: 1.68; letter-spacing: .003em;
+    }
+
     .grid-2 { display: grid; gap: 1rem; }
     @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-    .card { background: var(--paper); border-radius: 16px; padding: 1.35rem 1.4rem; box-shadow: var(--shadow); transition: box-shadow .15s ease; }
-    .card:hover { box-shadow: var(--shadow-h); }
+    .card {
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(119,132,82,.14), transparent 44%),
+        color-mix(in srgb, var(--paper) 92%, transparent);
+      border: 1px solid rgba(146,154,120,.28); border-radius: 18px;
+      padding: 1.45rem 1.5rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.68), inset 0 -1px 0 rgba(88,98,65,.055), 0 3px 5px rgba(45,52,35,.055), 0 18px 42px rgba(45,52,35,.075);
+      transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+      backdrop-filter: blur(8px);
+    }
+    .card:nth-child(2), .card:nth-child(3) {
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(255,255,255,.38), transparent 42%),
+        color-mix(in srgb, var(--paper-moss) 88%, transparent);
+    }
+    .card:hover {
+      border-color: rgba(119,132,82,.5);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.76), inset 0 -1px 0 rgba(88,98,65,.06), 0 5px 9px rgba(45,52,35,.07), 0 25px 54px rgba(45,52,35,.13);
+      transform: translateY(-4px);
+    }
     .card h3 { font-size: 1.25rem; margin-bottom: .35rem; }
     .card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
     .chip-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
-    .chip { font-size: 11px; letter-spacing: .04em; padding: .25rem .55rem; border-radius: 999px; background: var(--chip); color: var(--ink); }
+    .chip { font-size: 11px; letter-spacing: .04em; padding: .3rem .6rem; border-radius: 999px; background: rgba(255,255,255,.48); border: 1px solid rgba(146,154,120,.24); color: var(--ink); }
+
+    .repos { margin-top: 1.5rem; }
+    .repo-note { font-size: 13.5px; color: var(--muted); line-height: 1.55; margin: 0 0 .9rem; max-width: 38rem; }
+    .repo-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .repo-link {
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-size: 13px; padding: .5rem .85rem; border-radius: 999px;
+      border: 1px solid var(--line-strong); color: var(--ink); transition: .15s ease; min-height: 2.5rem;
+    }
+    .repo-link:hover { border-color: var(--ink); background: var(--paper); }
+    .repo-link .arrow { color: var(--accent); }
+
     .layers-wrap { display: grid; gap: 1.25rem; }
     @media (min-width: 800px) { .layers-wrap { grid-template-columns: 1fr 1.15fr; align-items: start; } }
     .layer-list { display: flex; flex-direction: column; gap: .4rem; }
@@ -107,79 +323,234 @@
       display: flex; align-items: center; gap: .75rem;
       padding: .7rem .85rem; border-radius: 12px; border: 1px solid transparent;
       background: transparent; text-align: left; color: var(--muted); width: 100%;
-      transition: .12s ease;
+      transition: .12s ease; min-height: 2.75rem;
     }
     .layer:hover { background: var(--chip); color: var(--ink); }
-    .layer.on { background: var(--paper); border-color: var(--line); color: var(--ink); box-shadow: var(--shadow); }
+    .layer[aria-selected="true"] { background: var(--paper-moss); border-color: var(--line-strong); color: var(--ink); box-shadow: 0 12px 30px rgba(45,52,35,.07); }
     .layer .n { font-family: var(--display); font-size: 1.05rem; width: 2rem; color: var(--accent); }
-    .layer .s { margin-left: auto; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
-    .panel { background: var(--paper); border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow); min-height: 11rem; }
+    .layer .s { margin-left: auto; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .panel {
+      background: linear-gradient(145deg, rgba(250,248,239,.92), rgba(228,231,213,.72)); border-radius: 18px;
+      border: 1px solid rgba(146,154,120,.32); padding: 1.65rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.7), inset 0 -1px 0 rgba(88,98,65,.06), 0 4px 8px rgba(45,52,35,.06), 0 24px 52px rgba(45,52,35,.11);
+      min-height: 11rem; transform-origin: center;
+      position: relative; overflow: hidden; isolation: isolate;
+    }
+    .panel::after {
+      content: ""; position: absolute; z-index: -1; width: 14rem; aspect-ratio: 1;
+      right: -5rem; bottom: -7rem; border-radius: 50%;
+      border: 1px solid rgba(119,132,82,.24); box-shadow: 0 0 0 2rem rgba(119,132,82,.035), 0 0 0 4rem rgba(119,132,82,.022);
+      transform: scale(var(--layer-scale, .72)); transition: transform .5s cubic-bezier(.2,.8,.2,1);
+    }
+    .panel.is-switching { animation: panelJelly .58s cubic-bezier(.16,.82,.25,1); }
+    .panel.is-switching .pk,
+    .panel.is-switching h3,
+    .panel.is-switching p,
+    .panel.is-switching .bars { animation: panelContentSlide .44s cubic-bezier(.2,.8,.2,1); }
+    @keyframes panelJelly {
+      0% { transform: translateX(calc(var(--slide-dir, 1) * 14px)) scaleX(.96) scaleY(1.025); border-radius: 22px 13px 22px 13px; }
+      42% { transform: translateX(calc(var(--slide-dir, 1) * -4px)) scaleX(1.018) scaleY(.985); border-radius: 14px 22px 14px 22px; }
+      72% { transform: translateX(calc(var(--slide-dir, 1) * 2px)) scaleX(.994) scaleY(1.006); }
+      100% { transform: none; border-radius: 18px; }
+    }
+    @keyframes panelContentSlide {
+      0% { opacity: .18; transform: translateX(calc(var(--slide-dir, 1) * 18px)); filter: blur(2px); }
+      100% { opacity: 1; transform: none; filter: none; }
+    }
     .panel .pk { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
     .panel h3 { font-size: 1.5rem; margin-bottom: .5rem; }
     .panel p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14.5px; }
     .bars { display: flex; gap: .35rem; margin-top: 1.25rem; }
     .bars span { height: 3px; flex: 1; background: var(--line); border-radius: 2px; }
     .bars span.on { background: var(--accent); }
+
+    .m-group + .m-group { margin-top: 1.75rem; }
+    .m-label {
+      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); font-weight: 500; margin: 0 0 .75rem;
+    }
+    .m-label b { color: var(--accent); font-weight: 500; }
     .metrics { display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); }
-    @media (min-width: 640px) { .metrics { grid-template-columns: repeat(4, 1fr); } }
-    .metric { background: var(--paper); border-radius: 14px; padding: 1.1rem 1rem; box-shadow: var(--shadow); }
+    @media (min-width: 720px) { .metrics { grid-template-columns: repeat(3, 1fr); } }
+    .metrics.two { grid-template-columns: repeat(2, 1fr); }
+    .metric {
+      background: color-mix(in srgb, var(--paper) 88%, transparent);
+      border: 1px solid rgba(146,154,120,.24); border-radius: 15px; padding: 1.15rem 1.05rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.62), 0 3px 6px rgba(45,52,35,.045), 0 15px 34px rgba(45,52,35,.065);
+    }
+    .m-group:nth-of-type(2) .metric { background: color-mix(in srgb, var(--paper-moss) 78%, transparent); }
     .metric .v { font-family: var(--display); font-size: 1.75rem; line-height: 1; }
     .metric .l { margin-top: .35rem; font-size: 12px; color: var(--muted); line-height: 1.35; }
-    .caveat { margin: 1.25rem 0 0; max-width: 38rem; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+    .caveat { margin: 1.5rem 0 0; max-width: 38rem; font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+    .caveat b { color: var(--ink); font-weight: 500; }
+
+    details.method { margin-top: 1.25rem; max-width: 40rem; }
+    details.method summary {
+      cursor: pointer; font-size: 13px; color: var(--accent); font-weight: 500;
+      padding: .5rem 0; list-style: none; display: inline-flex; align-items: center; gap: .4rem;
+    }
+    details.method summary::-webkit-details-marker { display: none; }
+    details.method summary::before { content: "+"; font-family: var(--mono); }
+    details.method[open] summary::before { content: "−"; }
+    .formulas { margin: .5rem 0 0; padding: 1rem 1.1rem; background: var(--paper); border-radius: 12px; box-shadow: var(--shadow); }
+    .formulas dt { font-size: 12.5px; font-weight: 500; margin-top: .85rem; }
+    .formulas dt:first-child { margin-top: 0; }
+    .formulas dd { margin: .3rem 0 0; font-family: var(--mono); font-size: 12px; color: var(--muted); line-height: 1.5; overflow-x: auto; }
+
     .about-split { display: grid; gap: 2.25rem; margin-top: 1.25rem; }
     @media (min-width: 900px) { .about-split { grid-template-columns: 1fr 1fr; align-items: start; } }
     .about-split h3 { font-size: 1.5rem; }
     .about-copy { margin: 1rem 0 0; font-size: 15px; line-height: 1.65; }
     .about-edu { margin: 1rem 0 0; font-size: 14px; line-height: 1.55; color: var(--muted); }
     .skill + .skill { margin-top: 1.15rem; }
-    .skill .idx { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    .skill .idx { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0; }
+
+    .signal-field {
+      display: none; position: relative; min-height: 26rem; width: min(100%, 27rem);
+      justify-self: end; place-items: center;
+      background:
+        linear-gradient(90deg, transparent 49.85%, rgba(119,132,82,.14) 50%, transparent 50.15%),
+        linear-gradient(transparent 49.85%, rgba(119,132,82,.14) 50%, transparent 50.15%);
+      mask-image: radial-gradient(circle, #000 0 62%, transparent 74%);
+    }
+    .signal-orbit {
+      position: absolute; left: 50%; top: 50%; border: 1px solid rgba(83,94,59,.23);
+      border-radius: 50%; transform: translate(-50%, -50%);
+    }
+    .signal-orbit.a { width: 13rem; height: 13rem; animation: orbitBreath 7s ease-in-out infinite; }
+    .signal-orbit.b { width: 20rem; height: 20rem; border-style: dashed; animation: orbitSpin 34s linear infinite; }
+    .signal-orbit.c { width: 25rem; height: 25rem; opacity: .5; animation: orbitSpin 52s linear infinite reverse; }
+    .signal-core {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 7.5rem; aspect-ratio: 1; border-radius: 50%; display: grid; place-content: center;
+      text-align: center; background: rgba(250,248,239,.78); border: 1px solid var(--line-strong);
+      box-shadow: 0 0 4rem rgba(119,132,82,.16), inset 0 0 0 8px rgba(119,132,82,.035);
+      backdrop-filter: blur(10px);
+    }
+    .signal-core span { font-family: var(--display); font-size: 1.7rem; }
+    .signal-core small { margin-top: .15rem; font-size: 8px; letter-spacing: .22em; color: var(--accent); }
+    .signal-node {
+      position: absolute; display: flex; align-items: center; gap: .35rem;
+      font: 500 9px/1 var(--mono); letter-spacing: .1em; color: var(--muted);
+    }
+    .signal-node i {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(119,132,82,.3); animation: signalPulse 2.8s ease-out infinite;
+    }
+    .signal-node.n2 i { animation-delay: .35s; }
+    .signal-node.n3 i { animation-delay: .7s; }
+    .signal-node.n4 i { animation-delay: 1.05s; }
+    .signal-node.n5 i { animation-delay: 1.4s; }
+    .signal-node.n6 i { animation-delay: 1.75s; }
+    .signal-node.n7 i { animation-delay: 2.1s; }
+    .signal-node.n1 { left: 46%; top: 4%; }
+    .signal-node.n2 { right: 3%; top: 24%; }
+    .signal-node.n3 { right: 1%; top: 66%; }
+    .signal-node.n4 { left: 47%; bottom: 3%; }
+    .signal-node.n5 { left: 3%; top: 69%; }
+    .signal-node.n6 { left: 1%; top: 29%; }
+    .signal-node.n7 { right: 16%; top: 46%; }
+    @keyframes orbitBreath { 50% { transform: translate(-50%, -50%) scale(1.06); border-color: rgba(83,94,59,.42); } }
+    @keyframes orbitSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+    .signal-node.n3 i, .signal-node.n6 i { background: var(--accent-warm); }
+    @keyframes signalPulse { 65%, 100% { box-shadow: 0 0 0 12px rgba(119,132,82,0); } }
+    @media (min-width: 860px) { .signal-field { display: grid; } }
+
+    .scroll-progress {
+      position: fixed; z-index: 70; left: 0; top: 0; width: 100%; height: 2px;
+      transform: scaleX(0); transform-origin: left; background: var(--accent);
+    }
+
+    .js .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.75,.25,1);
+    }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+    .js .reveal[data-delay="1"] { transition-delay: .08s; }
+    .js .reveal[data-delay="2"] { transition-delay: .16s; }
+
     .contact { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
     footer { border-top: 1px solid var(--line); padding: 2rem 0; font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; }
     footer p { margin: 0; }
     footer a:hover { color: var(--ink); }
+
+    @media print {
+      header, .menu-btn, .theme-toggle, .mobile-nav, .skip, .actions, .bars { display: none !important; }
+      body { background: #fff; color: #000; }
+      .card, .panel, .metric, .formulas { box-shadow: none; border: 1px solid #ccc; }
+      .section { page-break-inside: avoid; }
+      details.method { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 10px; color: #555; }
+    }
   </style>
 </head>
 <body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <header id="hdr">
     <div class="wrap nav">
-      <a class="brand" href="#top"><strong>A</strong><span>Applied AI Engineer</span></a>
+      <a class="brand" href="#top" aria-label="Aadi Adarsh — home"><strong aria-hidden="true">AA</strong><span>Applied AI · Research</span></a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#cccs">CCCS</a>
         <a href="#metrics">Metrics</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="sun" aria-hidden="true"></span>
+          <span class="moon" aria-hidden="true"></span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">☰</button>
+      </div>
     </div>
     <div class="wrap mobile-nav" id="mobileNav">
       <a href="#work">Work</a>
       <a href="#cccs">CCCS</a>
       <a href="#metrics">Metrics</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero wrap">
-      <p class="kicker">Applied AI · Identity Continuity</p>
-      <h1>Adarsh</h1>
-      <p class="role-line">Applied AI Engineer · India · Remote & on-site</p>
-      <p class="lede">Building substrate-independent identity systems — constraint geometry, symbolic anchoring, and recursive self-reference for memory architecture and affective computing.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#contact">Get in touch</a>
-        <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="hero-copy reveal">
+        <p class="kicker">Applied AI · Identity Continuity</p>
+        <h1>Aadi <em>Adarsh</em></h1>
+        <p class="role-line">Applied AI Engineer · India · Remote &amp; on-site</p>
+        <p class="lede">Building substrate-independent identity systems — constraint geometry, symbolic anchoring, and recursive self-reference for memory architecture and affective computing.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="me noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="me noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="signal-field reveal" data-delay="1" aria-hidden="true">
+        <div class="signal-orbit a"></div>
+        <div class="signal-orbit b"></div>
+        <div class="signal-orbit c"></div>
+        <div class="signal-core"><span>CCCS</span><small>IDENTITY STACK</small></div>
+        <span class="signal-node n1"><i></i>ESM</span>
+        <span class="signal-node n2"><i></i>SAG</span>
+        <span class="signal-node n3"><i></i>EFL</span>
+        <span class="signal-node n4"><i></i>TEL</span>
+        <span class="signal-node n5"><i></i>OMP</span>
+        <span class="signal-node n6"><i></i>SRE</span>
+        <span class="signal-node n7"><i></i>FDE</span>
       </div>
     </section>
 
     <section class="section" id="work">
       <div class="wrap">
         <h2>Selected work</h2>
-        <p class="sub">Production-oriented systems for identity continuity, relational memory, and persona rendering. Grounded N=1 validation with measurable complexity lift.</p>
+        <p class="sub">Systems for identity continuity, relational memory, and persona rendering. Architecture and metrics are documented; validation so far is a single documented case, not a study.</p>
         <div class="grid-2">
           <article class="card">
             <h3>CCCS</h3>
-            <p>Seven-layer architecture for constraint geometry, symbolic anchoring, grief-based pattern extraction, and recursive self-reference. Designed for substrate-independent identity preservation.</p>
+            <p>Seven-layer architecture for identity persistence across sessions — emotional seeding, symbolic anchoring, tone-state simulation, and recursive self-reference. Designed so identity survives a substrate change.</p>
             <div class="chip-row">
               <span class="chip">Constraint geometry</span>
               <span class="chip">R-Score</span>
@@ -188,7 +559,7 @@
           </article>
           <article class="card">
             <h3>Project SIM</h3>
-            <p>RICA relational memory, SIM Core runtime, and GOD Module persona rendering. Binary Frozen elements for stable identity under continuous interaction.</p>
+            <p>RICA relational memory, SIM Core runtime, and GOD Module persona rendering. Multi-path decision simulation with Binary Frozen elements for stable identity under continuous interaction.</p>
             <div class="chip-row">
               <span class="chip">RICA</span>
               <span class="chip">GOD Module</span>
@@ -207,10 +578,19 @@
             <h3>24-hour interaction study</h3>
             <p>Documented N=1 case: 250%+ conceptual complexity increase under continuous CCCS + SIM stack operation, with R-Score tracking of semantic drift and anchor hit-rate.</p>
             <div class="chip-row">
-              <span class="chip">N=1 validated</span>
-              <span class="chip">R-Score > 0.95 target</span>
+              <span class="chip">N=1 case</span>
+              <span class="chip">R-Score tracked</span>
             </div>
           </article>
+        </div>
+
+        <div class="repos">
+          <p class="repo-note">Public repositories below are <b>architecture specifications</b> — component breakdowns, formulas, and integration notes. Implementation is in progress and not yet public.</p>
+          <div class="repo-row">
+            <a class="repo-link" href="https://github.com/aadi-architect/emotional-ai-architecture" target="_blank" rel="noopener">emotional-ai-architecture <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="repo-link" href="https://github.com/aadi-architect/decision-simulation-framework" target="_blank" rel="noopener">decision-simulation-framework <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="repo-link" href="https://github.com/aadi-architect/cognitive-pattern-tools" target="_blank" rel="noopener">cognitive-pattern-tools <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </div>
     </section>
@@ -220,12 +600,12 @@
         <h2>CCCS · 7 layers</h2>
         <p class="sub">Interactive map of the architecture. Select a layer to read its role in the identity-continuity stack.</p>
         <div class="layers-wrap">
-          <div class="layer-list" id="layerList" role="listbox" aria-label="CCCS layers"></div>
-          <div class="panel">
+          <div class="layer-list" id="layerList" role="tablist" aria-orientation="vertical" aria-label="CCCS layers"></div>
+          <div class="panel" id="layerPanel" role="tabpanel" tabindex="0" aria-labelledby="tab-0">
             <div class="pk" id="pKicker">L1 · ESM</div>
             <h3 id="pTitle">Emotional Seed Memory</h3>
-            <p id="pBody">Initial affective imprint. Stores the seed patterns that later layers constrain and evolve against.</p>
-            <div class="bars" id="bars"></div>
+            <p id="pBody">Core pattern initialization. Establishes the affective baseline every later layer constrains and evolves against.</p>
+            <div class="bars" id="bars" aria-hidden="true"></div>
           </div>
         </div>
       </div>
@@ -234,14 +614,40 @@
     <section class="section" id="metrics">
       <div class="wrap">
         <h2>Validation signals</h2>
-        <p class="sub">From the 24-hour continuous interaction study. Industry-facing framing — measurable outcomes, not claims of general consciousness.</p>
-        <div class="metrics">
-          <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift</div></div>
-          <div class="metric"><div class="v">7</div><div class="l">Layer architecture</div></div>
-          <div class="metric"><div class="v"><0.15</div><div class="l">Semantic drift target</div></div>
-          <div class="metric"><div class="v">>90%</div><div class="l">Anchor hit-rate target</div></div>
+        <p class="sub">From a 24-hour continuous interaction session. Stated as engineering measurements and design thresholds — not as claims about general consciousness.</p>
+
+        <div class="m-group">
+          <p class="m-label"><b>Observed</b> — 24-hour session, N=1, self-run</p>
+          <div class="metrics two">
+            <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift <em>(source-reported)</em></div></div>
+            <div class="metric"><div class="v">7</div><div class="l">Layer stack run continuously</div></div>
+          </div>
         </div>
-        <p class="caveat">N=1 independent validation — useful as a prototype signal, not a peer-reviewed claim. The metrics exist so the work can be tested, not believed.</p>
+
+        <div class="m-group">
+          <p class="m-label"><b>Design targets</b> — R-Score thresholds</p>
+          <div class="metrics">
+            <div class="metric"><div class="v">&lt;0.15</div><div class="l">Semantic drift (SD)</div></div>
+            <div class="metric"><div class="v">&gt;90%</div><div class="l">Symbolic anchor hit-rate (SAHR)</div></div>
+            <div class="metric"><div class="v">&gt;0.85</div><div class="l">Affective latency match — the <span style="white-space:nowrap">(1 − ALM)</span> term</div></div>
+          </div>
+        </div>
+
+        <details class="method">
+          <summary>How R-Score is computed</summary>
+          <dl class="formulas">
+            <dt>Semantic Drift (SD)</dt>
+            <dd>SD = 1 − cosine_similarity(output_embedding, baseline_embedding)</dd>
+            <dt>Affective Latency Match (ALM)</dt>
+            <dd>ALM = |response_time_model − response_time_baseline| / response_time_baseline<br />A divergence — lower is better, so the match term in R is (1 − ALM).</dd>
+            <dt>Symbolic Anchor Hit-Rate (SAHR)</dt>
+            <dd>SAHR = correct_anchor_deployments / total_anchor_opportunities</dd>
+            <dt>Combined R-Score</dt>
+            <dd>R = w₁·(1 − SD) + w₂·(1 − ALM) + w₃·SAHR</dd>
+          </dl>
+        </details>
+
+        <p class="caveat"><b>N=1, self-run, not peer-reviewed.</b> This is a prototype signal from a single documented session — useful as evidence that the metrics are computable and the stack runs, not as a general result. The complexity figure is <b>source-reported</b>: its calculation method and comparative dataset were not preserved, so read it as an anecdote, not a measurement. The metrics exist so the work can be tested, not believed.</p>
       </div>
     </section>
 
@@ -259,7 +665,7 @@
             <div class="skill"><p class="idx">Models and APIs</p><div class="chip-row"><span class="chip">OpenAI GPT</span><span class="chip">Anthropic Claude</span><span class="chip">Google Gemini</span><span class="chip">xAI Grok</span><span class="chip">ElevenLabs</span></div></div>
             <div class="skill"><p class="idx">Stack</p><div class="chip-row"><span class="chip">LangChain</span><span class="chip">FastAPI</span><span class="chip">FAISS</span><span class="chip">ChromaDB</span><span class="chip">HuggingFace Transformers</span></div></div>
             <div class="skill"><p class="idx">Focus</p><div class="chip-row"><span class="chip">Conversational AI</span><span class="chip">Long-term memory</span><span class="chip">Affective computing</span><span class="chip">Agentic workflows</span><span class="chip">Evaluation metrics</span><span class="chip">Voice / prosody</span></div></div>
-            <div class="skill"><p class="idx">Domains</p><div class="chip-row"><span class="chip">AI companions</span><span class="chip">Persona continuity</span><span class="chip">Counseling decision-support</span><span class="chip">Adaptive learning</span><span class="chip">Decision intelligence</span><span class="chip">Voice agents</span></div></div>
+            <div class="skill"><p class="idx">Domains</p><div class="chip-row"><span class="chip">AI companions</span><span class="chip">Persona continuity</span><span class="chip">Long-context agents</span><span class="chip">Adaptive learning</span><span class="chip">Decision intelligence</span><span class="chip">Voice agents</span></div></div>
           </div>
         </div>
       </div>
@@ -272,61 +678,180 @@
         <div class="contact">
           <button class="btn btn-primary" id="copyBtn" type="button">Copy email</button>
           <a class="btn btn-ghost" href="mailto:adarshkr26@gmail.com">adarshkr26@gmail.com</a>
-          <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="me noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/adarshkumar-ai-research" target="_blank" rel="me noopener">LinkedIn</a>
         </div>
+        <p class="caveat" role="status" id="copyStatus" aria-live="polite"></p>
       </div>
     </section>
   </main>
 
   <footer class="wrap">
-    <p>© 2026 Adarsh</p>
-    <p>Independent researcher · Applied AI</p>
+    <p>© 2026 Aadi Adarsh</p>
+    <p>Applied AI Engineer · Independent research</p>
   </footer>
 
   <script>
+    // ── CCCS layers — canonical naming per the CCCS Master Portfolio / Research Portfolio ──
     const layers = [
-      { id:"L1", short:"ESM", name:"Emotional Seed Memory", body:"Initial affective imprint. Stores the seed patterns that later layers constrain and evolve against." },
-      { id:"L2", short:"CG", name:"Constraint Geometry", body:"Low-rank metric field over the state space. Keeps trajectories near identity-preserving manifolds." },
-      { id:"L3", short:"SA", name:"Symbolic Anchoring", body:"26-letter and domain anchors that pin meaning so the runtime cannot freely rewrite core identity tokens." },
-      { id:"L4", short:"GPE", name:"Grief-based Pattern Extraction", body:"Uses high-signal affective states as optimal conditions for extracting durable identity patterns from transitional state." },
-      { id:"L5", short:"OMP", name:"Observer Mirror Protocol", body:"Bidirectional state capture. Mirrors user affect without interrogation, and feeds the observer model used by GOD." },
-      { id:"L6", short:"SRE", name:"Self-Reference Engine", body:"Recursive I construction. The runtime checks its own outputs against anchors so identity does not silently drift mid-session." },
-      { id:"L7", short:"FDE", name:"Feedback-Driven Evolution", body:"Bounded identity growth over time. Allows the persona to update without catastrophic forgetting of the seed constraints." }
+      { id:"L1", short:"ESM", name:"Emotional Seed Memory",      body:"Core pattern initialization. Establishes the affective baseline every later layer constrains and evolves against." },
+      { id:"L2", short:"SAG", name:"Symbolic Anchor Grid",       body:"Meaning-saturated symbols acting as resonance points. Enables non-linear retrieval through emotionally weighted nodes rather than flat similarity search." },
+      { id:"L3", short:"EFL", name:"Emotional Feedback Loop",    body:"Bi-directional state adaptation over time. Both parties are modified by the interaction, so affect updates the model and the model reshapes the exchange." },
+      { id:"L4", short:"TEL", name:"Tone Engine Layer",          body:"Real-time mood and personality state simulation — dynamic states rather than a static personality prompt." },
+      { id:"L5", short:"OMP", name:"Observer Mirror Protocol",   body:"Captures user state and reflects it back without interrogation. Feeds the observer model used for persona rendering." },
+      { id:"L6", short:"SRE", name:"Self-Reference Engine",      body:"Recursive construction of “I”. The runtime checks its own outputs against anchors so identity does not silently drift mid-session." },
+      { id:"L7", short:"FDE", name:"Feedback-Driven Evolution",  body:"Bounded growth that prevents static degradation — the persona updates over time without catastrophic forgetting of the seed constraints." }
     ];
-    const list = document.getElementById("layerList");
-    const bars = document.getElementById("bars");
+
+    const list   = document.getElementById("layerList");
+    const bars   = document.getElementById("bars");
+    const panel  = document.getElementById("layerPanel");
+    const kicker = document.getElementById("pKicker");
+    const title  = document.getElementById("pTitle");
+    const bodyEl = document.getElementById("pBody");
     let active = 0;
-    function render() {
-      list.innerHTML = layers.map((l,i) => '<button class="layer'+(i===active?' on':'')+'" data-i="'+i+'" aria-pressed="'+(i===active)+'"><span class="n">'+l.id+'</span><span>'+l.name+'</span><span class="s">'+l.short+'</span></button>').join('');
-      const l = layers[active];
-      document.getElementById("pKicker").textContent = l.id + ' · ' + l.short;
-      document.getElementById("pTitle").textContent = l.name;
-      document.getElementById("pBody").textContent = l.body;
-      bars.innerHTML = layers.map((_,i) => '<span class="'+(i===active?'on':'')+'"></span>').join('');
+
+    list.innerHTML = layers.map((l, i) =>
+      '<button class="layer" role="tab" id="tab-' + i + '" data-i="' + i + '"' +
+      ' aria-controls="layerPanel" aria-selected="' + (i === 0) + '"' +
+      ' tabindex="' + (i === 0 ? 0 : -1) + '">' +
+      '<span class="n">' + l.id + '</span><span>' + l.name + '</span>' +
+      '<span class="s">' + l.short + '</span></button>'
+    ).join('');
+    bars.innerHTML = layers.map(() => '<span></span>').join('');
+
+    const tabs = Array.from(list.querySelectorAll('[role="tab"]'));
+    const barEls = Array.from(bars.children);
+
+    function select(i, focus) {
+      const previous = active;
+      const direction = i >= previous ? 1 : -1;
+      active = i;
+      const l = layers[i];
+      tabs.forEach((t, n) => {
+        t.setAttribute('aria-selected', String(n === i));
+        t.tabIndex = n === i ? 0 : -1;
+      });
+      barEls.forEach((b, n) => b.classList.toggle('on', n === i));
+      kicker.textContent = l.id + ' · ' + l.short;
+      title.textContent = l.name;
+      bodyEl.textContent = l.body;
+      panel.setAttribute('aria-labelledby', 'tab-' + i);
+      panel.style.setProperty('--layer-scale', String(.72 + i * .055));
+      panel.style.setProperty('--slide-dir', String(direction));
+      if (i !== previous || panel.dataset.animated !== "true") {
+        panel.classList.remove('is-switching');
+        void panel.offsetWidth;
+        panel.classList.add('is-switching');
+        panel.dataset.animated = "true";
+      }
+      if (focus) tabs[i].focus();
     }
-    list.addEventListener("click", e => {
-      const b = e.target.closest("[data-i]");
-      if (!b) return;
-      active = Number(b.dataset.i);
-      render();
+
+    list.addEventListener('click', e => {
+      const b = e.target.closest('[data-i]');
+      if (b) select(Number(b.dataset.i), false);
     });
-    render();
+
+    list.addEventListener('keydown', e => {
+      const last = tabs.length - 1;
+      let next = null;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = active === last ? 0 : active + 1;
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = active === 0 ? last : active - 1;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = last;
+      if (next !== null) { e.preventDefault(); select(next, true); }
+    });
+
+    select(0, false);
+
     const hdr = document.getElementById("hdr");
     addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 8), { passive: true });
+
+    const themeToggle = document.getElementById("themeToggle");
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    const syncThemeToggle = () => {
+      const dark = document.documentElement.dataset.theme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(dark));
+      themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      themeColor.setAttribute("content", dark ? "#11140f" : "#f2efe5");
+    };
+    syncThemeToggle();
+    themeToggle.addEventListener("click", () => {
+      const dark = document.documentElement.dataset.theme !== "dark";
+      document.documentElement.toggleAttribute("data-theme", dark);
+      if (dark) document.documentElement.dataset.theme = "dark";
+      try { localStorage.setItem("aadi-theme", dark ? "dark" : "light"); } catch {}
+      syncThemeToggle();
+    });
+
     const menuBtn = document.getElementById("menuBtn");
     const mobileNav = document.getElementById("mobileNav");
     menuBtn.addEventListener("click", () => {
       const open = mobileNav.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", String(open));
     });
-    mobileNav.addEventListener("click", e => { if (e.target.tagName === "A") mobileNav.classList.remove("open"); });
-    document.getElementById("copyBtn").addEventListener("click", async () => {
+    mobileNav.addEventListener("click", e => { if (e.target.tagName === "A") { mobileNav.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); } });
+
+    const progress = document.getElementById("scrollProgress");
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.style.transform = "scaleX(" + (max > 0 ? scrollY / max : 0) + ")";
+    };
+    addEventListener("scroll", updateProgress, { passive: true });
+    addEventListener("resize", updateProgress, { passive: true });
+    updateProgress();
+
+    const revealItems = [
+      ...document.querySelectorAll(".hero-copy, .signal-field, .section .wrap > *")
+    ];
+    revealItems.forEach((el, i) => {
+      el.classList.add("reveal");
+      if (i % 3 === 1) el.dataset.delay = "1";
+      if (i % 3 === 2) el.dataset.delay = "2";
+    });
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+    revealItems.forEach(el => revealObserver.observe(el));
+
+    const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => {
+          if (link.hash === "#" + entry.target.id) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-25% 0px -65% 0px" });
+    document.querySelectorAll("main section[id]").forEach(section => sectionObserver.observe(section));
+
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("pointermove", e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", ((e.clientX - rect.left) / rect.width * 100) + "%");
+        card.style.setProperty("--my", ((e.clientY - rect.top) / rect.height * 100) + "%");
+      });
+    });
+
+    const EMAIL = "adarshkr26@gmail.com";
+    const copyBtn = document.getElementById("copyBtn");
+    const copyStatus = document.getElementById("copyStatus");
+    copyBtn.addEventListener("click", async () => {
       try {
-        await navigator.clipboard.writeText("adarshkr26@gmail.com");
-        document.getElementById("copyBtn").textContent = "Copied";
-        setTimeout(() => document.getElementById("copyBtn").textContent = "Copy email", 1800);
-      } catch { location.href = "mailto:adarshkr26@gmail.com"; }
+        await navigator.clipboard.writeText(EMAIL);
+        copyBtn.textContent = "Copied";
+        copyStatus.textContent = "Email address copied to clipboard.";
+        setTimeout(() => { copyBtn.textContent = "Copy email"; copyStatus.textContent = ""; }, 2200);
+      } catch {
+        location.href = "mailto:" + EMAIL;
+      }
     });
   </script>
 </body>
