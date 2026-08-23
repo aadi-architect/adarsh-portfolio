@@ -138,8 +138,8 @@
       content: ""; position: absolute; left: 0; right: 100%; bottom: -.45rem; height: 1px;
       background: var(--accent); transition: right .25s ease;
     }
-    .nav-links a:hover, .nav-links a[aria-current="true"] { color: var(--ink); }
-    .nav-links a[aria-current="true"]::after { right: 0; }
+    .nav-links a:hover, .nav-links a[aria-current] { color: var(--ink); }
+    .nav-links a[aria-current]::after { right: 0; }
     @media (min-width: 768px) {
       .nav-links { display: flex; }
       .brand span { display: inline; }
@@ -308,12 +308,12 @@
       width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
       box-shadow: 0 0 0 0 rgba(181,68,31,.3); animation: signalPulse 2.8s ease-out infinite;
     }
-    .signal-node:nth-of-type(5) i { animation-delay: .35s; }
-    .signal-node:nth-of-type(6) i { animation-delay: .7s; }
-    .signal-node:nth-of-type(7) i { animation-delay: 1.05s; }
-    .signal-node:nth-of-type(8) i { animation-delay: 1.4s; }
-    .signal-node:nth-of-type(9) i { animation-delay: 1.75s; }
-    .signal-node:nth-of-type(10) i { animation-delay: 2.1s; }
+    .signal-node.n2 i { animation-delay: .35s; }
+    .signal-node.n3 i { animation-delay: .7s; }
+    .signal-node.n4 i { animation-delay: 1.05s; }
+    .signal-node.n5 i { animation-delay: 1.4s; }
+    .signal-node.n6 i { animation-delay: 1.75s; }
+    .signal-node.n7 i { animation-delay: 2.1s; }
     .signal-node.n1 { left: 46%; top: 4%; }
     .signal-node.n2 { right: 3%; top: 24%; }
     .signal-node.n3 { right: 1%; top: 66%; }
@@ -662,7 +662,10 @@
     const sectionObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        navLinks.forEach(link => link.toggleAttribute("aria-current", link.hash === "#" + entry.target.id));
+        navLinks.forEach(link => {
+          if (link.hash === "#" + entry.target.id) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        });
       });
     }, { rootMargin: "-25% 0px -65% 0px" });
     document.querySelectorAll("main section[id]").forEach(section => sectionObserver.observe(section));
