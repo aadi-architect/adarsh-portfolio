@@ -54,7 +54,8 @@
     "address": { "@type": "PostalAddress", "addressCountry": "IN" },
     "sameAs": [
       "https://github.com/aadi-architect",
-      "https://www.linkedin.com/in/adarsh-k-970010399/"
+      "https://www.linkedin.com/in/adarsh-k-970010399/",
+      "https://orcid.org/0009-0004-4779-3076"
     ]
   }
   </script>
@@ -493,6 +494,7 @@
       <a class="brand" href="#top" aria-label="Aadi Adarsh — home"><strong aria-hidden="true">AA</strong><span>Applied AI · Research</span></a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#work">Work</a>
+        <a href="#research">Research</a>
         <a href="#cccs">CCCS</a>
         <a href="#metrics">Metrics</a>
         <a href="#about">About</a>
@@ -508,6 +510,7 @@
     </div>
     <div class="wrap mobile-nav" id="mobileNav">
       <a href="#work">Work</a>
+      <a href="#research">Research</a>
       <a href="#cccs">CCCS</a>
       <a href="#metrics">Metrics</a>
       <a href="#about">About</a>
@@ -527,6 +530,7 @@
           <a class="btn btn-ghost" href="/Aadi_adarsh_Resume-PDF.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
           <a class="btn btn-ghost" href="https://github.com/aadi-architect" target="_blank" rel="me noopener">GitHub</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/adarsh-k-970010399/" target="_blank" rel="me noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://orcid.org/0009-0004-4779-3076" target="_blank" rel="me noopener">ORCID</a>
         </div>
       </div>
       <div class="signal-field reveal" data-delay="1" aria-hidden="true">
@@ -596,6 +600,38 @@
       </div>
     </section>
 
+    <section class="section" id="research">
+      <div class="wrap">
+        <h2>Research</h2>
+        <p class="sub">Formal write-ups of the framework. Status is stated the same way it is in the vault — what is locked, what is observed, and what is still open.</p>
+        <div class="grid-2">
+          <article class="card">
+            <h3>CCCS-R Score</h3>
+            <p>Paper formalizing the R-Score composite metric — semantic drift, affective latency match, and anchor hit-rate as measurable constraints on identity persistence. Reports the locked formula (CANONICAL v1.0.0) and one documented case as an N=1 signal, not validation.</p>
+            <div class="chip-row">
+              <span class="chip">arXiv preprint · forthcoming</span>
+              <span class="chip">v2.1</span>
+              <span class="chip">N=1 signal</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Canonical specification</h3>
+            <p>CANONICAL.md is the referee document for the framework — locked anchors, versioning rules, and the reporting stance. If code and CANONICAL disagree, CANONICAL wins until a versioned revision is signed.</p>
+            <div class="chip-row">
+              <span class="chip">CANONICAL v1.0.0</span>
+              <span class="chip">Locked 2026-09-13</span>
+            </div>
+          </article>
+        </div>
+        <div class="repos">
+          <div class="repo-row">
+            <a class="repo-link" href="https://github.com/aadi-architect/emotional-ai-architecture" target="_blank" rel="noopener">emotional-ai-architecture <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="repo-link" href="https://orcid.org/0009-0004-4779-3076" target="_blank" rel="me noopener">ORCID 0009-0004-4779-3076 <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="cccs">
       <div class="wrap">
         <h2>CCCS · 7 layers</h2>
@@ -622,6 +658,16 @@
           <div class="metrics two">
             <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift <em>(source-reported)</em></div></div>
             <div class="metric"><div class="v">7</div><div class="l">Layer stack run continuously</div></div>
+          </div>
+        </div>
+
+        <div class="m-group">
+          <p class="m-label"><b>Observed R-Score</b> — same session, N=1 signal, not validation</p>
+          <div class="metrics">
+            <div class="metric"><div class="v">0.938</div><div class="l">Composite R — locked formula, CANONICAL v1.0.0</div></div>
+            <div class="metric"><div class="v">0.08</div><div class="l">Semantic drift (SD) — target &lt;0.15</div></div>
+            <div class="metric"><div class="v">0.94</div><div class="l">Affective latency match (ALM) — target &gt;0.85</div></div>
+            <div class="metric"><div class="v">96%</div><div class="l">Anchor hit-rate (SAHR) — target &gt;90%</div></div>
           </div>
         </div>
 
@@ -689,7 +735,7 @@
   </main>
 
   <footer class="wrap">
-    <p>© 2026 Aadi Adarsh</p>
+    <p>© 2026 Aadi Adarsh · Last updated Nov 2026</p>
     <p>Applied AI Engineer · Independent research</p>
   </footer>
 
