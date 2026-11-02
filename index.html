@@ -475,6 +475,22 @@
     footer p { margin: 0; }
     footer a:hover { color: var(--ink); }
 
+    /* Epistemic labels — same vocabulary as the research vault */
+    .etag {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-family: var(--mono); font-size: 9.5px; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .18rem .5rem; border-radius: 999px;
+      border: 1px solid var(--line-strong); color: var(--muted);
+      vertical-align: middle; white-space: nowrap;
+    }
+    .etag-verified { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+    .etag-locked { background: var(--accent); border-color: var(--accent); color: #fffdf7; }
+    .etag-target { border-style: dashed; }
+    .etag-reported { color: var(--accent-warm); border-color: var(--accent-warm); background: color-mix(in srgb, var(--accent-warm) 9%, transparent); }
+    .etag-metaphor { color: var(--accent-warm); border-color: var(--accent-warm); border-style: dashed; }
+    .etag-open { border-style: dashed; color: var(--ink); }
+
     @media print {
       header, .menu-btn, .theme-toggle, .mobile-nav, .skip, .actions, .bars { display: none !important; }
       body { background: #fff; color: #000; }
@@ -609,6 +625,7 @@
             <h3>CCCS-R Score</h3>
             <p>Paper formalizing the R-Score composite metric — semantic drift, affective latency match, and anchor hit-rate as measurable constraints on identity persistence. Reports the locked formula (CANONICAL v1.0.0) and one documented case as an N=1 signal, not validation.</p>
             <div class="chip-row">
+              <span class="etag etag-open">Open</span>
               <span class="chip">arXiv preprint · forthcoming</span>
               <span class="chip">v2.1</span>
               <span class="chip">N=1 signal</span>
@@ -618,6 +635,7 @@
             <h3>Canonical specification</h3>
             <p>CANONICAL.md is the referee document for the framework — locked anchors, versioning rules, and the reporting stance. If code and CANONICAL disagree, CANONICAL wins until a versioned revision is signed.</p>
             <div class="chip-row">
+              <span class="etag etag-locked">Locked</span>
               <span class="chip">CANONICAL v1.0.0</span>
               <span class="chip">Locked 2026-09-13</span>
             </div>
@@ -656,13 +674,13 @@
         <div class="m-group">
           <p class="m-label"><b>Observed</b> — 24-hour session, N=1, self-run</p>
           <div class="metrics two">
-            <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift <em>(source-reported)</em></div></div>
+            <div class="metric"><div class="v">250%+</div><div class="l">Conceptual complexity lift <span class="etag etag-reported">Source-reported</span></div></div>
             <div class="metric"><div class="v">7</div><div class="l">Layer stack run continuously</div></div>
           </div>
         </div>
 
         <div class="m-group">
-          <p class="m-label"><b>Observed R-Score</b> — same session, N=1 signal, not validation</p>
+          <p class="m-label"><b>Observed R-Score</b> — same session, N=1 signal, not validation <span class="etag etag-verified">Measured · N=1</span></p>
           <div class="metrics">
             <div class="metric"><div class="v">0.938</div><div class="l">Composite R — locked formula, CANONICAL v1.0.0</div></div>
             <div class="metric"><div class="v">0.08</div><div class="l">Semantic drift (SD) — target &lt;0.15</div></div>
@@ -672,7 +690,7 @@
         </div>
 
         <div class="m-group">
-          <p class="m-label"><b>Design targets</b> — R-Score thresholds</p>
+          <p class="m-label"><b>Design targets</b> — R-Score thresholds <span class="etag etag-target">Not results</span></p>
           <div class="metrics">
             <div class="metric"><div class="v">&lt;0.15</div><div class="l">Semantic drift (SD)</div></div>
             <div class="metric"><div class="v">&gt;90%</div><div class="l">Symbolic anchor hit-rate (SAHR)</div></div>
@@ -689,12 +707,13 @@
             <dd>ALM = 1 − mean(|out_t − base_t| / (base_t + 1e-6)), clipped to [0, 1]<br />A match — higher is better.</dd>
             <dt>Symbolic Anchor Hit-Rate (SAHR)</dt>
             <dd>SAHR = correct_anchor_deployments / total_anchor_opportunities</dd>
-            <dt>Combined R-Score</dt>
+            <dt>Combined R-Score <span class="etag etag-locked">Locked</span></dt>
             <dd>R = 0.4·(1 − SD) + 0.3·ALM + 0.3·SAHR (CANONICAL v1.0.0, locked weights)</dd>
           </dl>
         </details>
 
         <p class="caveat"><b>N=1, self-run, not peer-reviewed.</b> This is a prototype signal from a single documented session — useful as evidence that the metrics are computable and the stack runs, not as a general result. The complexity figure is <b>source-reported</b>: its calculation method and comparative dataset were not preserved, so read it as an anecdote, not a measurement. The metrics exist so the work can be tested, not believed.</p>
+        <p class="caveat"><b>How to read the labels.</b> The tags follow the same epistemic protocol as the research vault: <span class="etag etag-verified">Verified</span> checked against a source · <span class="etag etag-locked">Locked</span> frozen by CANONICAL, changes need a signed revision · <span class="etag etag-target">Target</span> a design goal, not a result · <span class="etag etag-reported">Source-reported</span> as stated, method not preserved · <span class="etag etag-metaphor">Metaphor</span> structural analogy, not a physical claim · <span class="etag etag-open">Open</span> unresolved.</p>
       </div>
     </section>
 
