@@ -409,18 +409,8 @@
     .signal-field {
       display: none; position: relative; min-height: 26rem; width: min(100%, 27rem);
       justify-self: end; place-items: center;
-      background:
-        linear-gradient(90deg, transparent 49.85%, rgba(119,132,82,.14) 50%, transparent 50.15%),
-        linear-gradient(transparent 49.85%, rgba(119,132,82,.14) 50%, transparent 50.15%);
-      mask-image: radial-gradient(circle, #000 0 62%, transparent 74%);
     }
-    .signal-orbit {
-      position: absolute; left: 50%; top: 50%; border: 1px solid rgba(83,94,59,.23);
-      border-radius: 50%; transform: translate(-50%, -50%);
-    }
-    .signal-orbit.a { width: 13rem; height: 13rem; animation: orbitBreath 7s ease-in-out infinite; }
-    .signal-orbit.b { width: 20rem; height: 20rem; border-style: dashed; animation: orbitSpin 34s linear infinite; }
-    .signal-orbit.c { width: 25rem; height: 25rem; opacity: .5; animation: orbitSpin 52s linear infinite reverse; }
+    #latticeCanvas { position: absolute; inset: 0; width: 100%; height: 100%; }
     .signal-core {
       position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
       width: 7.5rem; aspect-ratio: 1; border-radius: 50%; display: grid; place-content: center;
@@ -430,31 +420,6 @@
     }
     .signal-core span { font-family: var(--display); font-size: 1.7rem; }
     .signal-core small { margin-top: .15rem; font-size: 8px; letter-spacing: .22em; color: var(--accent); }
-    .signal-node {
-      position: absolute; display: flex; align-items: center; gap: .35rem;
-      font: 500 9px/1 var(--mono); letter-spacing: .1em; color: var(--muted);
-    }
-    .signal-node i {
-      width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
-      box-shadow: 0 0 0 0 rgba(119,132,82,.3); animation: signalPulse 2.8s ease-out infinite;
-    }
-    .signal-node.n2 i { animation-delay: .35s; }
-    .signal-node.n3 i { animation-delay: .7s; }
-    .signal-node.n4 i { animation-delay: 1.05s; }
-    .signal-node.n5 i { animation-delay: 1.4s; }
-    .signal-node.n6 i { animation-delay: 1.75s; }
-    .signal-node.n7 i { animation-delay: 2.1s; }
-    .signal-node.n1 { left: 46%; top: 4%; }
-    .signal-node.n2 { right: 3%; top: 24%; }
-    .signal-node.n3 { right: 1%; top: 66%; }
-    .signal-node.n4 { left: 47%; bottom: 3%; }
-    .signal-node.n5 { left: 3%; top: 69%; }
-    .signal-node.n6 { left: 1%; top: 29%; }
-    .signal-node.n7 { right: 16%; top: 46%; }
-    @keyframes orbitBreath { 50% { transform: translate(-50%, -50%) scale(1.06); border-color: rgba(83,94,59,.42); } }
-    @keyframes orbitSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-    .signal-node.n3 i, .signal-node.n6 i { background: var(--accent-warm); }
-    @keyframes signalPulse { 65%, 100% { box-shadow: 0 0 0 12px rgba(119,132,82,0); } }
     @media (min-width: 860px) { .signal-field { display: grid; } }
 
     .scroll-progress {
@@ -492,7 +457,7 @@
     .etag-open { border-style: dashed; color: var(--ink); }
 
     @media print {
-      header, .menu-btn, .theme-toggle, .mobile-nav, .skip, .actions, .bars { display: none !important; }
+      header, .menu-btn, .theme-toggle, .mobile-nav, .skip, .actions, .bars, .signal-field { display: none !important; }
       body { background: #fff; color: #000; }
       .card, .panel, .metric, .formulas { box-shadow: none; border: 1px solid #ccc; }
       .section { page-break-inside: avoid; }
@@ -550,17 +515,8 @@
         </div>
       </div>
       <div class="signal-field reveal" data-delay="1" aria-hidden="true">
-        <div class="signal-orbit a"></div>
-        <div class="signal-orbit b"></div>
-        <div class="signal-orbit c"></div>
+        <canvas id="latticeCanvas"></canvas>
         <div class="signal-core"><span>CCCS</span><small>IDENTITY STACK</small></div>
-        <span class="signal-node n1"><i></i>ESM</span>
-        <span class="signal-node n2"><i></i>SAG</span>
-        <span class="signal-node n3"><i></i>EFL</span>
-        <span class="signal-node n4"><i></i>TEL</span>
-        <span class="signal-node n5"><i></i>OMP</span>
-        <span class="signal-node n6"><i></i>SRE</span>
-        <span class="signal-node n7"><i></i>FDE</span>
       </div>
     </section>
 
@@ -906,6 +862,169 @@
         card.style.setProperty("--my", ((e.clientY - rect.top) / rect.height * 100) + "%");
       });
     });
+
+    // ── Lattice-pulse hero — Bridge 1 metaphor: the core emits, anchors catch and re-emit ──
+    (() => {
+      const canvas = document.getElementById("latticeCanvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+      const LAYERS = ["ESM","SAG","EFL","TEL","OMP","SRE","FDE"];
+      const WARM = new Set([2, 5]);            // EFL + SRE carry the warm accent, as before
+      const SPACING = 26, BAND = 16, SPEED = 60, PULSE_EVERY = 3000, DECAY = 0.965;
+      let W = 0, H = 0, points = [], anchors = [], pulses = [];
+      let raf = 0, visible = false, lastPulse = 0, pulseCount = 0;
+
+      const readColors = () => {
+        const s = getComputedStyle(document.documentElement);
+        return {
+          accent: s.getPropertyValue("--accent").trim(),
+          warm: s.getPropertyValue("--accent-warm").trim(),
+          muted: s.getPropertyValue("--muted").trim(),
+          line: s.getPropertyValue("--line-strong").trim()
+        };
+      };
+      let C = readColors();
+
+      function build() {
+        const r = canvas.getBoundingClientRect();
+        if (r.width < 10) return;              // hidden (mobile) — nothing to build
+        W = r.width; H = r.height;
+        const dpr = Math.min(devicePixelRatio || 1, 2);
+        canvas.width = Math.round(W * dpr);
+        canvas.height = Math.round(H * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const cx = W / 2, cy = H / 2, rMax = Math.hypot(W, H) / 2;
+        points = [];
+        for (let y = SPACING / 2; y < H; y += SPACING)
+          for (let x = SPACING / 2; x < W; x += SPACING) {
+            const jx = x + (Math.random() - .5) * 7, jy = y + (Math.random() - .5) * 7;
+            const d = Math.hypot(jx - cx, jy - cy);
+            const edge = Math.min(1, Math.max(0, 1 - (d - rMax * .68) / (rMax * .4)));
+            points.push({ x: jx, y: jy, g: 0, edge, ph: Math.random() * 6.283 });
+          }
+        const R = Math.min(W, H) * .36;
+        anchors = LAYERS.map((label, i) => {
+          const a = -Math.PI / 2 + i * (Math.PI * 2 / 7);
+          return { label, x: cx + Math.cos(a) * R, y: cy + Math.sin(a) * R, warm: WARM.has(i), flare: 0 };
+        });
+      }
+
+      function spawn() {
+        pulseCount++;
+        const max = Math.hypot(W, H) * .62;
+        if (pulseCount % 4 === 0) {            // every 4th pulse starts at an anchor, not the core
+          const an = anchors[Math.floor(Math.random() * anchors.length)];
+          pulses.push({ x: an.x, y: an.y, r: 0, max: max * .8, warm: an.warm, echo: false, hit: new Set() });
+        } else {
+          pulses.push({ x: W / 2, y: H / 2, r: 0, max, warm: false, echo: false, hit: new Set() });
+        }
+      }
+
+      function step(dt) {
+        for (const pu of pulses) pu.r += SPEED * dt;
+        pulses = pulses.filter(pu => pu.r <= pu.max);
+        for (const pu of pulses) {
+          if (pu.echo) continue;
+          for (const p of points) {
+            const dd = Math.abs(Math.hypot(p.x - pu.x, p.y - pu.y) - pu.r);
+            if (dd < BAND) p.g = Math.max(p.g, 1 - dd / BAND);
+          }
+          anchors.forEach((an, i) => {
+            if (pu.hit.has(i)) return;
+            if (Math.abs(Math.hypot(an.x - pu.x, an.y - pu.y) - pu.r) < 4) {
+              pu.hit.add(i);
+              an.flare = 1;                     // anchor catches the wavefront…
+              pulses.push({ x: an.x, y: an.y, r: 0, max: 42, warm: an.warm, echo: true, hit: new Set() }); // …and re-emits
+            }
+          });
+        }
+        for (const p of points) p.g *= DECAY;
+        for (const an of anchors) an.flare *= 0.94;
+      }
+
+      function draw(now) {
+        ctx.clearRect(0, 0, W, H);
+        if (anchors.length) {                  // faint dashed ring at anchor radius — continuity with the old orbits
+          ctx.beginPath();
+          ctx.arc(W / 2, H / 2, Math.min(W, H) * .36, 0, 6.2832);
+          ctx.strokeStyle = C.line; ctx.globalAlpha = .3; ctx.lineWidth = 1;
+          ctx.setLineDash([2, 5]); ctx.stroke(); ctx.setLineDash([]);
+        }
+        for (const p of points) {
+          const shimmer = .5 + .5 * Math.sin(now / 900 + p.ph);   // slow shimmer — the entropy tax, kept honest
+          const a = p.edge * (.10 + .08 * shimmer + .85 * p.g);
+          if (a < .02) continue;
+          ctx.globalAlpha = Math.min(1, a);
+          ctx.fillStyle = p.g > .04 ? C.accent : C.muted;
+          ctx.beginPath(); ctx.arc(p.x, p.y, 1 + p.g * 1.6, 0, 6.2832); ctx.fill();
+        }
+        for (const pu of pulses) {
+          ctx.globalAlpha = Math.max(0, (pu.echo ? .4 : .5) * (1 - pu.r / pu.max));
+          if (ctx.globalAlpha <= 0) continue;
+          ctx.strokeStyle = pu.warm ? C.warm : C.accent;
+          ctx.lineWidth = pu.echo ? 1 : 1.2;
+          ctx.beginPath(); ctx.arc(pu.x, pu.y, pu.r, 0, 6.2832); ctx.stroke();
+        }
+        ctx.font = "500 9px ui-monospace, SFMono-Regular, Menlo, monospace";
+        ctx.textAlign = "center";
+        for (const an of anchors) {
+          const col = an.warm ? C.warm : C.accent, glow = .65 + .35 * an.flare;
+          ctx.globalAlpha = .18 * glow; ctx.fillStyle = col;
+          ctx.beginPath(); ctx.arc(an.x, an.y, 7 + an.flare * 8, 0, 6.2832); ctx.fill();
+          ctx.globalAlpha = glow;
+          ctx.beginPath(); ctx.arc(an.x, an.y, 2.6 + an.flare * 2.2, 0, 6.2832); ctx.fill();
+          ctx.globalAlpha = Math.min(1, .55 + .45 * an.flare);
+          ctx.fillStyle = C.muted;
+          ctx.fillText(an.label, an.x, an.y - 9);
+        }
+        ctx.globalAlpha = 1;
+      }
+
+      function staticFrame() {                 // reduced-motion: one honest still, anchors lit, one ring frozen mid-flight
+        for (const an of anchors) an.flare = .4;
+        pulses = [{ x: W / 2, y: H / 2, r: Math.min(W, H) * .36, max: Math.hypot(W, H) * .62, warm: false, echo: false, hit: new Set() }];
+        draw(0);
+      }
+
+      let prev = 0;
+      function loop(now) {
+        if (!visible || reduceMotion.matches) { raf = 0; return; }
+        const dt = Math.min(.05, (now - prev) / 1000 || 0);
+        prev = now;
+        if (now - lastPulse > PULSE_EVERY) { lastPulse = now; spawn(); }
+        step(dt);
+        draw(now);
+        raf = requestAnimationFrame(loop);
+      }
+      function start() {
+        if (raf || !visible || reduceMotion.matches || !W) return;
+        prev = 0; lastPulse = 0;               // first pulse fires on the first frame
+        raf = requestAnimationFrame(loop);
+      }
+      function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+
+      new IntersectionObserver(es => {
+        visible = es[0].isIntersecting;
+        if (visible) { build(); reduceMotion.matches ? staticFrame() : start(); }
+        else stop();
+      }, { threshold: .05 }).observe(canvas.parentElement);
+
+      document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
+
+      let resizeT;
+      addEventListener("resize", () => {
+        clearTimeout(resizeT);
+        resizeT = setTimeout(() => { build(); if (reduceMotion.matches) staticFrame(); }, 150);
+      }, { passive: true });
+
+      new MutationObserver(() => {             // theme toggle — re-read palette, repaint
+        C = readColors();
+        if (reduceMotion.matches) staticFrame();
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+      reduceMotion.addEventListener?.("change", () => { stop(); if (visible) { build(); staticFrame(); } });
+    })();
 
     const EMAIL = "work@aadiadarsh.dev";
     const copyBtn = document.getElementById("copyBtn");
